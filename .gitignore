@@ -1,0 +1,49 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Editor backups
+*~
+*.swp
+*.swo
+*.bak
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+
+# Generated artifacts (NOT fixtures/candidates - those are tracked as evidence)
+scripts/*.pyc
+*.log
+
+# Large data files that can be regenerated
+# (data/ catalogs ARE tracked as they are required for tests)
+# data/*.json  <-- DO NOT IGNORE - these are required for tests
+
+# Coverage reports
+coverage.xml
+.coverage*
+
+# IDE specific
+.project
+.pydevproject

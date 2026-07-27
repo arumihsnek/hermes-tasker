@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          check-latest: true
+
+      - name: Display Python version
+        run: python3 --version
+
+      - name: Run focused generator tests
+        run: python3 -m pytest -q tests/test_tasker_artifact_generator.py
+
+      - name: Run full test suite
+        run: python3 -m pytest -q tests
+
+      - name: Validate Project candidate (XML policy)
+        run: python3 scripts/validate_tasker_xml.py fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml --policy
+
+      - name: Validate Project candidate (graph structure)
+        run: python3 scripts/validate_tasker_graph.py fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml
+
+      - name: Verify candidate files exist
+        run: |
+          test -f fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml
+          test -f fixtures/candidates/project-renderer-gate-v1/artifact.manifest.json
+          test -f fixtures/candidates/project-renderer-gate-v1/request.json
+          echo "All candidate files present"
