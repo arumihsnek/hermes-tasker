@@ -36,12 +36,14 @@ This repository is a **transport-independent** producer and validator of Tasker 
 | JavaScriptlet (code 129) | Supported | Static reviewed gateway/capability source |
 
 **Static validation gate**: ✅ **PASS** (commit `b5689eb`)
-- 36 focused tests pass
-- 36 full tests pass  
+- 36 focused generator tests pass
+- 36 full static tests pass  
 - XML policy validator: PASS
 - Graph validator: PASS
 - Codex review: 0 BLOCKERs, 1 IMPORTANT addressed
 - Tasker assisted import and roundtrip: **PENDING**
+
+> **Note on test counts**: The static `hermes-tasker` toolchain has **36 tests**. An earlier report of 56 tests included 20 runtime/evidence/transport tests that belong to the `hermes-android` Bridge layer. See [Test Suite Provenance Report](docs/reports/test-suite-provenance.md) for the full classification.
 
 **Target version**: Tasker 6.7.6-beta on Pixel 8
 
@@ -121,7 +123,7 @@ python3 scripts/validate_tasker_graph.py out/artifact.tsk.xml
 # Focused generator tests (36 tests)
 python3 -m pytest -q tests/test_tasker_artifact_generator.py
 
-# Full test suite
+# Full static test suite (36 tests)
 python3 -m pytest -q tests
 
 # Validate static Project candidate
@@ -215,12 +217,14 @@ It does **not** imply Tasker import success, runtime correctness, or transport v
 
 GitHub Actions workflow at `.github/workflows/ci.yml` runs on every push and PR:
 
-1. Install Python 3.11+
-2. Install dependencies (stdlib only — no external packages required)
-3. Run focused tests
-4. Run full tests
-5. Validate Project candidate with XML policy validator
-6. Validate Project candidate with graph validator
+1. Check out the repository
+2. Install Python 3.11
+3. Install pytest explicitly
+4. Run focused generator tests
+5. Run full static test suite
+6. Validate Project candidate with XML policy validator
+7. Validate Project candidate with graph validator
+8. Verify candidate files exist
 
 All validations must pass for CI to succeed.
 
