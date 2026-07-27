@@ -8,7 +8,7 @@ from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parents[1]
 SCRIPTS = SKILL_DIR / "scripts"
-SOURCE = Path("/home/ubuntu/.hermes/webui/attachments/1a70f5adaf22/tasker_ai_system_instructions.txt")
+SOURCE = SKILL_DIR / "fixtures/sources/tasker_ai_system_instructions.txt"
 
 
 def run_script(script, *args):
