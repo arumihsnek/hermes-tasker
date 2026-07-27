@@ -1,0 +1,267 @@
+{
+  "schema": "hermes-tasker-plugin-templates/v1",
+  "tasker_version": "6.7.6-beta",
+  "templates": [
+    {
+      "id": "termux-tasker.run-command.v1002",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/profiles/ADB_Pairing.prf.xml",
+      "action_code": 1256900802,
+      "plugin_id": null,
+      "package": "com.termux.tasker",
+      "activity": "com.termux.tasker.EditConfigurationActivity",
+      "mutable_bundle_keys": [
+        "com.termux.tasker.extra.EXECUTABLE",
+        "com.termux.execute.arguments",
+        "com.termux.tasker.extra.WORKDIR",
+        "com.termux.tasker.extra.STDIN",
+        "com.termux.tasker.extra.SESSION_ACTION",
+        "com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL",
+        "com.termux.tasker.extra.TERMINAL",
+        "com.termux.tasker.extra.WAIT_FOR_RESULT"
+      ],
+      "argument_signature": [
+        {
+          "tag": "label",
+          "sr": ""
+        },
+        {
+          "tag": "se",
+          "sr": ""
+        },
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act2\" ve=\"7\">\n\t\t\t<code>1256900802</code>\n\t\t\t<label>Run a script to pair Termux with ADB WiFi</label>\n\t\t\t<se>false</se>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<com.termux.execute.arguments>&lt;null&gt;</com.termux.execute.arguments>\n\t\t\t\t\t<com.termux.execute.arguments-type>java.lang.String</com.termux.execute.arguments-type>\n\t\t\t\t\t<com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL>&lt;null&gt;</com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL>\n\t\t\t\t\t<com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL-type>java.lang.String</com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL-type>\n\t\t\t\t\t<com.termux.tasker.extra.EXECUTABLE>$PREFIX/bin/bash</com.termux.tasker.extra.EXECUTABLE>\n\t\t\t\t\t<com.termux.tasker.extra.EXECUTABLE-type>java.lang.String</com.termux.tasker.extra.EXECUTABLE-type>\n\t\t\t\t\t<com.termux.tasker.extra.SESSION_ACTION>&lt;null&gt;</com.termux.tasker.extra.SESSION_ACTION>\n\t\t\t\t\t<com.termux.tasker.extra.SESSION_ACTION-type>java.lang.String</com.termux.tasker.extra.SESSION_ACTION-type>\n\t\t\t\t\t<com.termux.tasker.extra.STDIN>set -u\n\naddress=\"%ip_port\"\ncode=\"%pairing\"\n\naddress=\"${address//$'\\n'/}\"\naddress=\"${address//$'\\r'/}\"\ncode=\"${code//[^0-9]/}\"\n\ncase \"$address\" in\n    *:*) ;;\n    *)\n        echo \"Dirección de emparejamiento inválida: $address\" &gt;&amp;2\n        exit 1\n        ;;\nesac\n\nif [ \"${#code}\" -ne 6 ]; then\n    echo \"Código de emparejamiento inválido: $code\" &gt;&amp;2\n    exit 1\nfi\n\nprintf '%s\\n' \"$code\" | adb pair \"$address\"</com.termux.tasker.extra.STDIN>\n\t\t\t\t\t<com.termux.tasker.extra.STDIN-type>java.lang.String</com.termux.tasker.extra.STDIN-type>\n\t\t\t\t\t<com.termux.tasker.extra.TERMINAL>false</com.termux.tasker.extra.TERMINAL>\n\t\t\t\t\t<com.termux.tasker.extra.TERMINAL-type>java.lang.Boolean</com.termux.tasker.extra.TERMINAL-type>\n\t\t\t\t\t<com.termux.tasker.extra.VERSION_CODE>1002</com.termux.tasker.extra.VERSION_CODE>\n\t\t\t\t\t<com.termux.tasker.extra.VERSION_CODE-type>java.lang.Integer</com.termux.tasker.extra.VERSION_CODE-type>\n\t\t\t\t\t<com.termux.tasker.extra.WAIT_FOR_RESULT>true</com.termux.tasker.extra.WAIT_FOR_RESULT>\n\t\t\t\t\t<com.termux.tasker.extra.WAIT_FOR_RESULT-type>java.lang.Boolean</com.termux.tasker.extra.WAIT_FOR_RESULT-type>\n\t\t\t\t\t<com.termux.tasker.extra.WORKDIR>&lt;null&gt;</com.termux.tasker.extra.WORKDIR>\n\t\t\t\t\t<com.termux.tasker.extra.WORKDIR-type>java.lang.String</com.termux.tasker.extra.WORKDIR-type>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>$PREFIX/bin/bash\n\nWorking Directory ✕\nStdin ✓\nCustom Log Level null\nTerminal Session ✕\nWait For Result ✓</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%stdout\nStandard Output\nThe &amp;lt;B&amp;gt;stdout&amp;lt;/B&amp;gt; of the command.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%stdout_original_length\nStandard Output Original Length\nThe original length of &amp;lt;B&amp;gt;stdout&amp;lt;/B&amp;gt;.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%stderr\nStandard Error\nThe &amp;lt;B&amp;gt;stderr&amp;lt;/B&amp;gt; of the command.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%stderr_original_length\nStandard Error Original Length\nThe original length of &amp;lt;B&amp;gt;stderr&amp;lt;/B&amp;gt;.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%result\nExit Code\nThe &amp;lt;B&amp;gt;exit code&amp;lt;/B&amp;gt; of the command.0 often means success and anything else is usually a failure of some sort.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>com.termux.tasker.extra.EXECUTABLE com.termux.execute.arguments com.termux.tasker.extra.WORKDIR com.termux.tasker.extra.STDIN com.termux.tasker.extra.SESSION_ACTION com.termux.tasker.extra.BACKGROUND_CUSTOM_LOG_LEVEL</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.termux.tasker</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.termux.tasker.EditConfigurationActivity</Str>\n\t\t\t<Int sr=\"arg3\" val=\"30\" />\n\t\t\t<Int sr=\"arg4\" val=\"0\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.connectivity.bluetooth.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/profiles/HDMI.prf.xml",
+      "action_code": 547879170,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentConnectivity",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigConnectivity",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "se",
+          "sr": ""
+        },
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act6\" ve=\"7\">\n\t\t\t<code>547879170</code>\n\t\t\t<se>false</se>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<BluetoothDeviceAddress>&lt;null&gt;</BluetoothDeviceAddress>\n\t\t\t\t\t<BluetoothDeviceAddress-type>java.lang.String</BluetoothDeviceAddress-type>\n\t\t\t\t\t<BluetoothDeviceName>Wuzhi Audio</BluetoothDeviceName>\n\t\t\t\t\t<BluetoothDeviceName-type>java.lang.String</BluetoothDeviceName-type>\n\t\t\t\t\t<BluetoothTethering>&lt;null&gt;</BluetoothTethering>\n\t\t\t\t\t<BluetoothTethering-type>java.lang.String</BluetoothTethering-type>\n\t\t\t\t\t<CheckBluetoothDevices>true</CheckBluetoothDevices>\n\t\t\t\t\t<CheckBluetoothDevices-type>java.lang.Boolean</CheckBluetoothDevices-type>\n\t\t\t\t\t<CheckInternetConnection>false</CheckInternetConnection>\n\t\t\t\t\t<CheckInternetConnection-type>java.lang.Boolean</CheckInternetConnection-type>\n\t\t\t\t\t<CheckUSB>false</CheckUSB>\n\t\t\t\t\t<CheckUSB-type>java.lang.Boolean</CheckUSB-type>\n\t\t\t\t\t<CheckWifiNetworks>false</CheckWifiNetworks>\n\t\t\t\t\t<CheckWifiNetworks-type>java.lang.Boolean</CheckWifiNetworks-type>\n\t\t\t\t\t<ConnectToNetwork>&lt;null&gt;</ConnectToNetwork>\n\t\t\t\t\t<ConnectToNetwork-type>java.lang.String</ConnectToNetwork-type>\n\t\t\t\t\t<ConnectionStatus>&lt;StringArray sr=\"\"/&gt;</ConnectionStatus>\n\t\t\t\t\t<ConnectionStatus-type>[Ljava.lang.String;</ConnectionStatus-type>\n\t\t\t\t\t<ForceConnectBluetooth>Wuzhi Audio</ForceConnectBluetooth>\n\t\t\t\t\t<ForceConnectBluetooth-type>java.lang.String</ForceConnectBluetooth-type>\n\t\t\t\t\t<Ping>&lt;null&gt;</Ping>\n\t\t\t\t\t<Ping-type>java.lang.String</Ping-type>\n\t\t\t\t\t<SignalStrength>false</SignalStrength>\n\t\t\t\t\t<SignalStrength-type>java.lang.Boolean</SignalStrength-type>\n\t\t\t\t\t<TakePhoneCall>false</TakePhoneCall>\n\t\t\t\t\t<TakePhoneCall-type>java.lang.Boolean</TakePhoneCall-type>\n\t\t\t\t\t<USSDCode>&lt;null&gt;</USSDCode>\n\t\t\t\t\t<USSDCode-type>java.lang.String</USSDCode-type>\n\t\t\t\t\t<WakeOnLanIpAddress>&lt;null&gt;</WakeOnLanIpAddress>\n\t\t\t\t\t<WakeOnLanIpAddress-type>java.lang.String</WakeOnLanIpAddress-type>\n\t\t\t\t\t<WakeOnLanMacAddress>&lt;null&gt;</WakeOnLanMacAddress>\n\t\t\t\t\t<WakeOnLanMacAddress-type>java.lang.String</WakeOnLanMacAddress-type>\n\t\t\t\t\t<WakeOnLanPort>&lt;null&gt;</WakeOnLanPort>\n\t\t\t\t\t<WakeOnLanPort-type>java.lang.String</WakeOnLanPort-type>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>Check Bluetooth Devices: true\nDevice Name: Wuzhi Audio\nForce Connect Bluetooth: Wuzhi Audio</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%atbluetoothdevices\nJSON string of Bluetooth Devices\nAll info on paired bluetooth devices. Use AutoTools JSON action to get info&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>ForceConnectBluetooth BluetoothDeviceName plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<plugininstanceid>526b9ac2-006e-48bd-bc1d-310b4973a210</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentConnectivity</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigConnectivity</Str>\n\t\t\t<Int sr=\"arg3\" val=\"120\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.launcher.hyperion.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/profiles/HDMI.prf.xml",
+      "action_code": 1130446693,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentLauncher",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigLauncher",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "on",
+          "sr": ""
+        },
+        {
+          "tag": "se",
+          "sr": ""
+        },
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act1\" ve=\"7\">\n\t\t\t<code>1130446693</code>\n\t\t\t<on>false</on>\n\t\t\t<se>false</se>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>Launcher: hyperion</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS>parameters</net.dinglisch.android.tasker.JSON_ENCODED_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>java.lang.String</net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>parameters plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<parameters>{\"launcherOnlySendCommand\":false,\"launcherSelect\":\"hyperion\",\"launcherSetCommand\":false,\"generatedValues\":{}}</parameters>\n\t\t\t\t\t<parameters-type>java.lang.String</parameters-type>\n\t\t\t\t\t<plugininstanceid>c3fefbac-5992-42a7-a6ff-7ca4628693f5</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentLauncher</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigLauncher</Str>\n\t\t\t<Int sr=\"arg3\" val=\"60\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.webscreen.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/profiles/Map_Apps.prf.xml",
+      "action_code": 1165325195,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentWebScreen",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigWebScreen",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act2\" ve=\"7\">\n\t\t\t<code>1165325195</code>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<AlwaysRefreshPreset>false</AlwaysRefreshPreset>\n\t\t\t\t\t<AlwaysRefreshPreset-type>java.lang.Boolean</AlwaysRefreshPreset-type>\n\t\t\t\t\t<ScreenPreset>&lt;null&gt;</ScreenPreset>\n\t\t\t\t\t<ScreenPreset-type>java.lang.String</ScreenPreset-type>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>Display Mode: Close\nClose Overlay ID: pendiente\nToast Duration: 5000\nHeight: 400\nGravity: Center\nAnimation: Slide In From Top\nShow Duration: 500\nHide Duration: 250\nTurn Screen On: true</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS>parameters</net.dinglisch.android.tasker.JSON_ENCODED_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>java.lang.String</net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>parameters plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<parameters>{\"inputJavascriptInject\":{},\"loadAllLinksInternally\":false,\"overlayToastDuration\":\"5000\",\"webScreenOverlay\":{\"overlayHidDuration\":\"250\",\"overlayReturnToOriginalPosition\":false,\"overlayShowDuration\":\"500\",\"overlayTurnScreenOn\":true},\"webscreebKeepScreenOn\":false,\"webscreenCloseOverlayId\":\"pendiente\",\"webscreenColors\":{},\"webscreenCommands\":{\"continueOnError\":false,\"onlyLocalCommands\":false,\"waitForCommand\":false,\"webscreenCloseOnAutoAppsCommand\":false},\"webscreenDialog\":{\"dimBackground\":false,\"hideDialogShadow\":false},\"webscreenDialogMode\":\"6\",\"webscreenHtmlInject\":{\"webscreenReturnHtmlInjection\":false},\"webscreenWindow\":{\"dialogAnimation\":\"0\",\"dialogGravity\":\"17\",\"dialogHeight\":\"400\",\"dialogUseFullHeight\":false},\"generatedValues\":{}}</parameters>\n\t\t\t\t\t<parameters-type>java.lang.String</parameters-type>\n\t\t\t\t\t<plugininstanceid>68547dfe-a62b-486e-a60f-14ffc7d32ee5</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentWebScreen</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigWebScreen</Str>\n\t\t\t<Int sr=\"arg3\" val=\"30\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.dialog.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/projects/Monitor_Externo.prj.xml",
+      "action_code": 1304982781,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentDialog",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigDialog",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "on",
+          "sr": ""
+        },
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act3\" ve=\"7\">\n\t\t\t<code>1304982781</code>\n\t\t\t<on>false</on>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<Dialog>&lt;null&gt;</Dialog>\n\t\t\t\t\t<Dialog-type>java.lang.String</Dialog-type>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB />\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<plugininstanceid>44df7ce2-542e-4756-9f74-29055cc31bd1</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentDialog</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigDialog</Str>\n\t\t\t<Int sr=\"arg3\" val=\"60\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.report.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/profiles/Reset_Notification_Button.prf.xml",
+      "action_code": 907418897,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentReport",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigReport",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act13\" ve=\"7\">\n\t\t\t<code>907418897</code>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>Separator: ,</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS>parameters</net.dinglisch.android.tasker.JSON_ENCODED_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>java.lang.String</net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>parameters plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<parameters>{\"advancedSettings\":{\"separator\":\",\"},\"generatedValues\":{}}</parameters>\n\t\t\t\t\t<parameters-type>java.lang.String</parameters-type>\n\t\t\t\t\t<plugininstanceid>03f584ef-ce6c-4670-9488-0287fdffcc3c</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentReport</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigReport</Str>\n\t\t\t<Int sr=\"arg3\" val=\"60\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    },
+    {
+      "id": "autotools.sensors.v2",
+      "fixture": "fixtures/pixel8-individual-2026-07-25/tasks/Pendiente.tsk.xml",
+      "action_code": 1474379058,
+      "plugin_id": "com.joaomgcd.autotools.intent.IntentSensors",
+      "package": "com.joaomgcd.autotools",
+      "activity": "com.joaomgcd.autotools.activity.ActivityConfigSensors",
+      "mutable_bundle_keys": [],
+      "argument_signature": [
+        {
+          "tag": "label",
+          "sr": ""
+        },
+        {
+          "tag": "Bundle",
+          "sr": "arg0"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg1"
+        },
+        {
+          "tag": "Str",
+          "sr": "arg2"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg3"
+        },
+        {
+          "tag": "Int",
+          "sr": "arg4"
+        }
+      ],
+      "action_xml": "<Action sr=\"act1\" ve=\"7\">\n\t\t\t<code>1474379058</code>\n\t\t\t<label>Barómetro</label>\n\t\t\t<Bundle sr=\"arg0\">\n\t\t\t\t<Vals sr=\"val\">\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB>Sensor Number: 6</com.twofortyfouram.locale.intent.extra.BLURB>\n\t\t\t\t\t<com.twofortyfouram.locale.intent.extra.BLURB-type>java.lang.String</com.twofortyfouram.locale.intent.extra.BLURB-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS>parameters</net.dinglisch.android.tasker.JSON_ENCODED_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>java.lang.String</net.dinglisch.android.tasker.JSON_ENCODED_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=\"\"&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%ataccuracy\nSensor Output Accuracy\n0 for not accurate, 1 for very accurate&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%atsensor()\nSensor Output\nValues read from the sensor&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%err\nError Code\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%errmsg\nError Message\nOnly available if you select &amp;lt;b&amp;gt;Continue Task After Error&amp;lt;/b&amp;gt; and the action ends in error&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>\n\t\t\t\t\t<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>parameters plugininstanceid plugintypeid </net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS>\n\t\t\t\t\t<net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>java.lang.String</net.dinglisch.android.tasker.extras.VARIABLE_REPLACE_KEYS-type>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled>true</net.dinglisch.android.tasker.subbundled>\n\t\t\t\t\t<net.dinglisch.android.tasker.subbundled-type>java.lang.Boolean</net.dinglisch.android.tasker.subbundled-type>\n\t\t\t\t\t<parameters>{\"convertOrientationToDegrees\":false,\"is0Valid\":false,\"reportUnreliable\":false,\"sensorNumber\":\"6\",\"generatedValues\":{}}</parameters>\n\t\t\t\t\t<parameters-type>java.lang.String</parameters-type>\n\t\t\t\t\t<plugininstanceid>cd90b090-2fa2-429e-a1c1-0878c49003fb</plugininstanceid>\n\t\t\t\t\t<plugininstanceid-type>java.lang.String</plugininstanceid-type>\n\t\t\t\t\t<plugintypeid>com.joaomgcd.autotools.intent.IntentSensors</plugintypeid>\n\t\t\t\t\t<plugintypeid-type>java.lang.String</plugintypeid-type>\n\t\t\t\t</Vals>\n\t\t\t</Bundle>\n\t\t\t<Str sr=\"arg1\" ve=\"3\">com.joaomgcd.autotools</Str>\n\t\t\t<Str sr=\"arg2\" ve=\"3\">com.joaomgcd.autotools.activity.ActivityConfigSensors</Str>\n\t\t\t<Int sr=\"arg3\" val=\"60\" />\n\t\t\t<Int sr=\"arg4\" val=\"1\" />\n\t\t</Action>\n\t\t"
+    }
+  ]
+}

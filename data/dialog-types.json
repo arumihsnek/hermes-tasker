@@ -1,0 +1,206 @@
+{
+  "schema": "hermes-tasker-catalog/v1",
+  "source": {
+    "authority": "official_catalog",
+    "file": "/home/ubuntu/.hermes/webui/attachments/1a70f5adaf22/tasker_ai_system_instructions.txt",
+    "line": 1102
+  },
+  "items": [
+    {
+      "i": "t",
+      "n": "Text",
+      "nd": "Text"
+    },
+    {
+      "i": "n",
+      "n": "Number",
+      "nd": "Number"
+    },
+    {
+      "i": "b",
+      "n": "True or False",
+      "nd": "TrueOrFalse"
+    },
+    {
+      "i": "yn",
+      "n": "Yes or No",
+      "nd": "YesOrNo"
+    },
+    {
+      "i": "onoff",
+      "n": "On or Off",
+      "nd": "OnOrOff"
+    },
+    {
+      "i": "f",
+      "n": "File",
+      "nd": "File"
+    },
+    {
+      "i": "fs",
+      "n": "File (System)",
+      "nd": "FileSystemPicker"
+    },
+    {
+      "i": "fss",
+      "n": "Files (System)",
+      "nd": "FilesSystemPicker"
+    },
+    {
+      "i": "i",
+      "n": "Image",
+      "nd": "Image"
+    },
+    {
+      "i": "is",
+      "n": "Images",
+      "nd": "Images"
+    },
+    {
+      "i": "d",
+      "n": "Directory",
+      "nd": "Directory"
+    },
+    {
+      "i": "ds",
+      "n": "Directory (System)",
+      "nd": "DirectorySystemPicker"
+    },
+    {
+      "i": "ws",
+      "n": "Wifi SSID",
+      "nd": "WifiSSID"
+    },
+    {
+      "i": "wm",
+      "n": "Wifi MAC",
+      "nd": "WifiMac"
+    },
+    {
+      "i": "bn",
+      "n": "Bluetooth device's name",
+      "nd": "BluetoothName"
+    },
+    {
+      "i": "bn",
+      "n": "Bluetooth device's MAC address",
+      "nd": "BluetoothMac"
+    },
+    {
+      "i": "c",
+      "n": "Contact",
+      "nd": "Contact"
+    },
+    {
+      "i": "cn",
+      "n": "Contact Number",
+      "nd": "ContactNumber"
+    },
+    {
+      "i": "cg",
+      "n": "Contact or Contact Group",
+      "nd": "ContactGroup"
+    },
+    {
+      "i": "ti",
+      "n": "Time",
+      "nd": "Time"
+    },
+    {
+      "i": "da",
+      "n": "Date",
+      "nd": "Date",
+      "f": "Formatted as yyyy-MM-dd"
+    },
+    {
+      "i": "a",
+      "n": "App",
+      "nd": "App"
+    },
+    {
+      "i": "as",
+      "n": "Apps",
+      "nd": "Apps"
+    },
+    {
+      "i": "la",
+      "n": "Launcher",
+      "nd": "AppLauncher"
+    },
+    {
+      "i": "cl",
+      "n": "Colour",
+      "nd": "Color"
+    },
+    {
+      "i": "ln",
+      "n": "Language",
+      "nd": "Language"
+    },
+    {
+      "i": "ttsv",
+      "n": "Text To Speech voice",
+      "nd": "TTSVoice"
+    },
+    {
+      "i": "can",
+      "n": "Calendar",
+      "nd": "CalendarName"
+    },
+    {
+      "i": "cae",
+      "n": "Calendar Entry",
+      "nd": "CalendarEntry"
+    },
+    {
+      "i": "tz",
+      "n": "Time Zone",
+      "nd": "TimeZone"
+    },
+    {
+      "i": "ta",
+      "n": "Task",
+      "nd": "Task"
+    },
+    {
+      "i": "prf",
+      "n": "Profile",
+      "nd": "Profile"
+    },
+    {
+      "i": "prj",
+      "n": "Project",
+      "nd": "Project"
+    },
+    {
+      "i": "scn",
+      "n": "Scene",
+      "nd": "Scene"
+    },
+    {
+      "i": "cac",
+      "n": "User Certificate",
+      "nd": "UsertCertificate"
+    },
+    {
+      "i": "wv2",
+      "n": "Widget v2",
+      "nd": "WidgetV2"
+    },
+    {
+      "i": "sv2",
+      "n": "Show Scene v2",
+      "nd": "SceneV2"
+    },
+    {
+      "i": "kba",
+      "n": "Keyboard App",
+      "nd": "KeyboardApp"
+    },
+    {
+      "i": "loc",
+      "n": "Location",
+      "nd": "Location"
+    }
+  ]
+}

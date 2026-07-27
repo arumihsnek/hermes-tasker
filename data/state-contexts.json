@@ -1,0 +1,1383 @@
+{
+  "schema": "hermes-tasker-catalog/v1",
+  "source": {
+    "authority": "official_catalog",
+    "file": "/home/ubuntu/.hermes/webui/attachments/1a70f5adaf22/tasker_ai_system_instructions.txt",
+    "line": 20
+  },
+  "items": [
+    {
+      "kind": "state_context",
+      "code": 154,
+      "name": "Active User",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "User ID",
+          "constraints": "0:999999:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 100,
+      "name": "Airplane Mode",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 135,
+      "name": "Auto-Sync",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 140,
+      "name": "Battery Level",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:100",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:100",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 141,
+      "name": "Battery Temperature",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:2000",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:2000",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 3,
+      "name": "BT Connected",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "btn:1:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Address",
+          "constraints": "bta:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 2,
+      "name": "BT Status",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Status",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 4,
+      "name": "BT Near",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "btn:1:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Address",
+          "constraints": "bta:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Major Device Class",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Standard Devices",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Low-Energy (LE) Devices",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Int",
+          "name": "Unpaired Devices",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 6,
+          "xml_type": "Int",
+          "name": "Toggle BlueTooth",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 5,
+      "name": "Calendar Entry",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Title",
+          "constraints": "ctit:1:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Location",
+          "constraints": "cloc:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Description",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Available",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Calendar",
+          "constraints": "ccal:2:?",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Str",
+          "name": "Start Early (Minutes)",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 6,
+          "xml_type": "Str",
+          "name": "End Later (Minutes)",
+          "constraints": "t:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 40,
+      "name": "Call",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Number",
+          "constraints": "p:3:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 7,
+      "name": "Cell Near",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Cell Tower / Last Signal",
+          "constraints": "t:8",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Ignore Cells",
+          "constraints": "t:4:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 16,
+      "name": "Device Idle",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 122,
+      "name": "Display Orientation",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Is",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 123,
+      "name": "Display State",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Is",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 80,
+      "name": "Docked",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 175,
+      "name": "Dreaming",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 161,
+      "name": "Ethernet Connect",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Active",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 30,
+      "name": "Headset Plugged",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 12,
+      "name": "HDMI Plugged",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 50,
+      "name": "Keyboard Out",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 182,
+      "name": "Heart Rate",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:20",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:250",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 185,
+      "name": "Humidity",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:100",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:100",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 103,
+      "name": "Light Level",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:100",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:100",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 106,
+      "name": "Magnetic Field",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Axis",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:1000",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:1000",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 105,
+      "name": "Media Button",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Button",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Held Down",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Grab",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Stop Event",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 107,
+      "name": "Missed Call",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Caller",
+          "constraints": "p:3:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 110,
+      "name": "Mobile Network",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "2G",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "3G",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "3G - HSPA",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "4G",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "5G",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Int",
+          "name": "Active",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 195,
+      "name": "NFC Status",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Status",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 120,
+      "name": "Orientation",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Is",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 148,
+      "name": "Pen Out",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 149,
+      "name": "Pen Menu",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 10,
+      "name": "Power",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Source",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 14,
+      "name": "Power Save Mode",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Enabled",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 104,
+      "name": "Pressure",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:2000",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:2000",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 125,
+      "name": "Proximity Sensor",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 142,
+      "name": "Profile Active",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "prof:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 143,
+      "name": "Task Running",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "m:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 145,
+      "name": "Signal Strength",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:8",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:8",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 180,
+      "name": "Temperature",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "From",
+          "constraints": "0:50",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "To",
+          "constraints": "0:50",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 147,
+      "name": "Unread Text",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Sender",
+          "constraints": "sms:2:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Content",
+          "constraints": "t:2:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 150,
+      "name": "USB Connected",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Class",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 165,
+      "name": "Variable Value",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 136,
+      "name": "VPN Connected",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Active",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Check After Screen Unlock",
+          "constraints": "true",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 160,
+      "name": "Wifi Connected",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "SSID",
+          "constraints": "ssid:3:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "MAC",
+          "constraints": "mac:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "IP",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Active",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Check After Screen Unlock",
+          "constraints": "true",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 186,
+      "name": "Custom Setting",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "sset:1",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Value",
+          "constraints": "t:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 170,
+      "name": "Wifi Near",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "SSID",
+          "constraints": "ssid:1:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "MAC",
+          "constraints": "mac:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Capabilities",
+          "constraints": "let:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Min. Activate Signal Level",
+          "constraints": "0:9",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Channel",
+          "constraints": "0:196:?",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Int",
+          "name": "Toggle Wifi",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 192,
+      "name": "Sleeping",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Minimum Confidence",
+          "constraints": "0:100:85",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Maximum Light",
+          "constraints": "1:6:2",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Maximum Motion",
+          "constraints": "1:6:2",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 193,
+      "name": "Matter Light (Experimental)",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Device IDs/Names",
+          "constraints": "mattdevi:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 194,
+      "name": "Work Profile",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 198,
+      "name": "Shizuku Available",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 188,
+      "name": "Dark Mode",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    },
+    {
+      "kind": "state_context",
+      "code": 190,
+      "name": "Any Sensor",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Type",
+          "constraints": "t:1",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Interval (ms)",
+          "constraints": "100:15000:1000",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Interval Type (Check Help)",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Convert Orientation",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 20
+      }
+    }
+  ]
+}

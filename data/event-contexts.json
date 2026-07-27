@@ -1,0 +1,2966 @@
+{
+  "schema": "hermes-tasker-catalog/v1",
+  "source": {
+    "authority": "official_catalog",
+    "file": "/home/ubuntu/.hermes/webui/attachments/1a70f5adaf22/tasker_ai_system_instructions.txt",
+    "line": 13
+  },
+  "items": [
+    {
+      "kind": "event_context",
+      "code": 2080,
+      "name": "BT Connection",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "btn:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Address",
+          "constraints": "bta:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%bt_address",
+          "description": "Address"
+        },
+        {
+          "name": "%bt_alias",
+          "description": "Alias"
+        },
+        {
+          "name": "%bt_battery_level",
+          "description": "Battery Level"
+        },
+        {
+          "name": "%bt_paired",
+          "description": "Paired"
+        },
+        {
+          "name": "%bt_class",
+          "description": "Class"
+        },
+        {
+          "name": "%bt_class_name",
+          "description": "Class Name"
+        },
+        {
+          "name": "%bt_connected",
+          "description": "Connected"
+        },
+        {
+          "name": "%bt_encrypted",
+          "description": "Encrypted"
+        },
+        {
+          "name": "%bt_major_class",
+          "description": "Major Class"
+        },
+        {
+          "name": "%bt_major_class_name",
+          "description": "Major Class Name"
+        },
+        {
+          "name": "%bt_name",
+          "description": "Name"
+        },
+        {
+          "name": "%bt_signal_strength",
+          "description": "Signal Strength"
+        },
+        {
+          "name": "%bt_type",
+          "description": "Type"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2081,
+      "name": "Music Track Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Track",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Album",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Artist",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "apppakc",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%mt_album",
+          "description": "Album"
+        },
+        {
+          "name": "%mt_all_metadata",
+          "description": "All Metadata"
+        },
+        {
+          "name": "%mt_all_metadata_keys()",
+          "description": "All Metadata"
+        },
+        {
+          "name": "%mt_app",
+          "description": "App"
+        },
+        {
+          "name": "%mt_art",
+          "description": "Art"
+        },
+        {
+          "name": "%mt_artist",
+          "description": "Artist"
+        },
+        {
+          "name": "%mt_duration",
+          "description": "Duration"
+        },
+        {
+          "name": "%mt_duration_formatted",
+          "description": "Duration"
+        },
+        {
+          "name": "%mt_genre",
+          "description": "Genre"
+        },
+        {
+          "name": "%mt_number_tracks",
+          "description": "Number Of Tracks"
+        },
+        {
+          "name": "%mt_queue_icons()",
+          "description": "Queue Icons"
+        },
+        {
+          "name": "%mt_queue_titles()",
+          "description": "Queue Titles"
+        },
+        {
+          "name": "%mt_rating",
+          "description": "Rating"
+        },
+        {
+          "name": "%mt_state",
+          "description": "State"
+        },
+        {
+          "name": "%mt_track",
+          "description": "Track Name"
+        },
+        {
+          "name": "%mt_track_number",
+          "description": "Track Number"
+        },
+        {
+          "name": "%mt_year",
+          "description": "Year"
+        },
+        {
+          "name": "%mt_playing",
+          "description": "Playing"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2083,
+      "name": "Significant Motion",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2084,
+      "name": "Alarm Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "apppakc",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%na_day",
+          "description": "Day"
+        },
+        {
+          "name": "%na_month",
+          "description": "Month"
+        },
+        {
+          "name": "%na_package",
+          "description": "Package"
+        },
+        {
+          "name": "%na_time",
+          "description": "Time"
+        },
+        {
+          "name": "%na_time_to_alarm_days",
+          "description": "Days To Alarm"
+        },
+        {
+          "name": "%na_time_to_alarm_hours",
+          "description": "Hours To Alarm"
+        },
+        {
+          "name": "%na_time_to_alarm_minutes",
+          "description": "Minutes To Alarm"
+        },
+        {
+          "name": "%na_time_to_alarm_seconds",
+          "description": "Seconds To Alarm"
+        },
+        {
+          "name": "%na_time_ms",
+          "description": "Time MilliSeconds"
+        },
+        {
+          "name": "%na_year",
+          "description": "Year"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2085,
+      "name": "Logcat Entry",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Component",
+          "constraints": "t:1",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Filter",
+          "constraints": "t:8:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Grep Filter (Check Help)",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%lc_text",
+          "description": "Text"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2088,
+      "name": "Any Sensor",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Type",
+          "constraints": "t:1",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Interval (ms)",
+          "constraints": "100:15000:1000",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Interval Type (Check Help)",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Convert Orientation",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%as_accuracy",
+          "description": "Accuracy"
+        },
+        {
+          "name": "%as_values()",
+          "description": "Values"
+        },
+        {
+          "name": "%as_sensor_type",
+          "description": "Sensor Type"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2089,
+      "name": "HTTP Request",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Port",
+          "constraints": "1025:9999:1821",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Method",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Path",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Quick Response",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Int",
+          "name": "Timeout (Seconds)",
+          "constraints": "1:9999:10",
+          "description": ""
+        },
+        {
+          "position": 6,
+          "xml_type": "Int",
+          "name": "Only On Wifi",
+          "constraints": "true",
+          "description": ""
+        },
+        {
+          "position": 7,
+          "xml_type": "Str",
+          "name": "Network Name/MAC Address",
+          "constraints": "t:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%http_request_body",
+          "description": "Body"
+        },
+        {
+          "name": "%http_request_files()",
+          "description": "Files"
+        },
+        {
+          "name": "%http_request_headers()",
+          "description": "Headers"
+        },
+        {
+          "name": "%http_request_ip_address_v4",
+          "description": "IP Address v4"
+        },
+        {
+          "name": "%http_request_method",
+          "description": "Method"
+        },
+        {
+          "name": "%http_request_multipart_names()",
+          "description": "Multipart Names"
+        },
+        {
+          "name": "%http_request_multipart_types()",
+          "description": "Multipart Types"
+        },
+        {
+          "name": "%http_request_multipart_values()",
+          "description": "Multipart Values"
+        },
+        {
+          "name": "%http_request_path",
+          "description": "Path"
+        },
+        {
+          "name": "%http_request_port",
+          "description": "Port"
+        },
+        {
+          "name": "%http_request_id",
+          "description": "Request ID"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2091,
+      "name": "Command",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Command",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Variables",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Last Variable Is Array",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Structure Output (JSON, etc)",
+          "constraints": "bosta",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%command_parameter",
+          "description": "Command Parameter"
+        },
+        {
+          "name": "%command_parameters()",
+          "description": "Command Parameters"
+        },
+        {
+          "name": "%command_prefix",
+          "description": "Prefix"
+        },
+        {
+          "name": "%command_text",
+          "description": "The full command"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2092,
+      "name": "Device Control Shown",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%pms_add_controls",
+          "description": "Add Controls"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2093,
+      "name": "Assistant Action",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Command",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%aa_command",
+          "description": "The full command"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2094,
+      "name": "Call Screened",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Caller",
+          "constraints": "p",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%cs_capabilities",
+          "description": "Capabilities"
+        },
+        {
+          "name": "%cs_incoming",
+          "description": "Incoming"
+        },
+        {
+          "name": "%cs_name",
+          "description": "Contact Name"
+        },
+        {
+          "name": "%cs_number",
+          "description": "Phone Number"
+        },
+        {
+          "name": "%cs_properties",
+          "description": "Properties"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2095,
+      "name": "Tick",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Interval (ms)",
+          "constraints": "t:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2096,
+      "name": "Sleeping",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Minimum Confidence",
+          "constraints": "0:100:85",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Maximum Light",
+          "constraints": "1:6:2",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Maximum Motion",
+          "constraints": "1:6:2",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%sl_confidence",
+          "description": "Confidence"
+        },
+        {
+          "name": "%sl_light",
+          "description": "Light"
+        },
+        {
+          "name": "%sl_motion",
+          "description": "Motion"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2097,
+      "name": "Clipboard Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Ignore Set By Tasker",
+          "constraints": "true",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%cl_extras",
+          "description": "Extras"
+        },
+        {
+          "name": "%cl_html_text",
+          "description": "HTML Text"
+        },
+        {
+          "name": "%cl_image_uri",
+          "description": "Image URI"
+        },
+        {
+          "name": "%cl_mimetypes()",
+          "description": "Mime Type"
+        },
+        {
+          "name": "%cl_text",
+          "description": "Text"
+        },
+        {
+          "name": "%cl_uri",
+          "description": "URI"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2098,
+      "name": "Accessibility Services Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%asc_running_services()",
+          "description": "Running Accessibility Services"
+        },
+        {
+          "name": "%asc_running_services_app_names()",
+          "description": "Running Accessibility Services App Names"
+        },
+        {
+          "name": "%asc_running_services_service_names()",
+          "description": "Running Accessibility Services Names"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2099,
+      "name": "Device Unlock Failed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%uf_failed_attempts",
+          "description": "Failed Password Attempts"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2100,
+      "name": "Remote Action Token Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%rae_bearer_token",
+          "description": "Bearer Token"
+        },
+        {
+          "name": "%rae_fcm_token",
+          "description": "FCM Token"
+        },
+        {
+          "name": "%rae_remote_device_name()",
+          "description": "Remote Device Names"
+        },
+        {
+          "name": "%rae_remote_device_token()",
+          "description": "Remote Device Names"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2101,
+      "name": "Received Share",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Package Name",
+          "constraints": "apppakc",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Share Trigger",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Subject",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Text",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Str",
+          "name": "Files",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 6,
+          "xml_type": "Str",
+          "name": "Mime Type",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 7,
+          "xml_type": "Str",
+          "name": "Action",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 8,
+          "xml_type": "Str",
+          "name": "Categories",
+          "constraints": "t:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%rs_action",
+          "description": "Action"
+        },
+        {
+          "name": "%rs_all_extras",
+          "description": "All Extras JSON"
+        },
+        {
+          "name": "%rs_app_name",
+          "description": "App Name"
+        },
+        {
+          "name": "%rs_categories()",
+          "description": "Categories"
+        },
+        {
+          "name": "%rs_files()",
+          "description": "Files"
+        },
+        {
+          "name": "%rs_flags",
+          "description": "Flags"
+        },
+        {
+          "name": "%rs_identifier",
+          "description": "Identifier"
+        },
+        {
+          "name": "%rs_mime_type",
+          "description": "Mime Type"
+        },
+        {
+          "name": "%rs_package_name",
+          "description": "Package Name"
+        },
+        {
+          "name": "%rs_share_trigger",
+          "description": "Share Trigger"
+        },
+        {
+          "name": "%rs_subject",
+          "description": "Subject"
+        },
+        {
+          "name": "%rs_text",
+          "description": "Text"
+        },
+        {
+          "name": "%rs_title",
+          "description": "Title"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2102,
+      "name": "Calendar Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Added",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Updated",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Int",
+          "name": "Deleted",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Other",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%cc_event_ids_added()",
+          "description": "Event Ids Added"
+        },
+        {
+          "name": "%cc_event_ids_deleted()",
+          "description": "Event Ids Deleted"
+        },
+        {
+          "name": "%cc_event_ids_updated()",
+          "description": "Event Ids Updated"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2103,
+      "name": "Extra Trigger",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%sa_extras",
+          "description": "Extras"
+        },
+        {
+          "name": "%sa_referrer",
+          "description": "Referrer"
+        },
+        {
+          "name": "%sa_trigger_id",
+          "description": "Trigger ID"
+        },
+        {
+          "name": "%sa_trigger_package_name",
+          "description": "Trigger Package Name"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2104,
+      "name": "Scene V2",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Scene Name",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Element ID",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Interaction Type",
+          "constraints": "t:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%sv2_element_id",
+          "description": "01. Element ID"
+        },
+        {
+          "name": "%sv2_element_path",
+          "description": "04. Element Path"
+        },
+        {
+          "name": "%sv2_interaction_type",
+          "description": "05. Interaction Type"
+        },
+        {
+          "name": "%sv2_scene_name",
+          "description": "02. Scene Name"
+        },
+        {
+          "name": "%sv2_screen_id",
+          "description": "03. Screen Id"
+        },
+        {
+          "name": "%sv2_element_id",
+          "description": "01. Element ID"
+        },
+        {
+          "name": "%sv2_element_value",
+          "description": "02. Element Value"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2105,
+      "name": "Wifi Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Get SSID",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "SSID",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "MAC",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "State",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%wf_state",
+          "description": "Wifi State"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2077,
+      "name": "Secondary App Opened",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%sa_action",
+          "description": "Action"
+        },
+        {
+          "name": "%sa_category",
+          "description": "Category"
+        },
+        {
+          "name": "%sa_extras",
+          "description": "Extras"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2078,
+      "name": "App Changed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Bundle",
+          "name": "Output Variables",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "apppakc",
+          "description": ""
+        }
+      ],
+      "output_variables": [
+        {
+          "name": "%app_icon",
+          "description": "Icon"
+        },
+        {
+          "name": "%app_name",
+          "description": "Name"
+        },
+        {
+          "name": "%app_package",
+          "description": "Package"
+        }
+      ],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 203,
+      "name": "Battery Changed",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 205,
+      "name": "Battery Full",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 206,
+      "name": "Battery Overheating",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 305,
+      "name": "Alarm Clock",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Label",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 306,
+      "name": "Alarm Done",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 300,
+      "name": "Date Set",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 302,
+      "name": "Time/Date Set",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 304,
+      "name": "Timezone Set",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 210,
+      "name": "Display Off",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 208,
+      "name": "Display On",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 1000,
+      "name": "Display Unlocked",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 230,
+      "name": "File Attribute Change",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 224,
+      "name": "File Closed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 228,
+      "name": "File Deleted",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 222,
+      "name": "File Modified",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Event",
+          "constraints": "fme",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 220,
+      "name": "File Moved",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 226,
+      "name": "File Opened",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "File",
+          "constraints": "f",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 3000,
+      "name": "Gesture",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Pattern",
+          "constraints": "acc",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 3001,
+      "name": "Shake",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Axis",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Sensitivity",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Duration",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 309,
+      "name": "Steps Taken",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Number",
+          "constraints": "1:999999:1",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2003,
+      "name": "Missed Call",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Caller",
+          "constraints": "p",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 4,
+      "name": "Phone Idle",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2,
+      "name": "Phone Offhook",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 6,
+      "name": "Phone Ringing",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Caller",
+          "constraints": "p",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 8,
+      "name": "Received Data SMS",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Sender",
+          "constraints": "sms",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Port",
+          "constraints": "0:65535:?",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Data",
+          "constraints": "t:3",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 7,
+      "name": "Received Text",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Sender",
+          "constraints": "sms",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Content",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "SIM Card",
+          "constraints": "simc:1:?",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "MMS Body",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2010,
+      "name": "SMS Failure",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Recipient",
+          "constraints": "sms",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2005,
+      "name": "SMS Success",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Recipient",
+          "constraints": "sms",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 215,
+      "name": "Button: Camera",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 216,
+      "name": "Button: Long Search",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 134,
+      "name": "Card Mounted",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Card Title",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Frequency",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 136,
+      "name": "Card Removed",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 135,
+      "name": "Card Unmounted",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 599,
+      "name": "Intent Received",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Action",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Cat",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "Cat",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Scheme",
+          "constraints": "t:1:?",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Mime Type",
+          "constraints": "mime:1:?",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 411,
+      "name": "Device Boot",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 413,
+      "name": "Device Shutdown",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 422,
+      "name": "Device Storage Low",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 429,
+      "name": "Locale Changed",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 450,
+      "name": "New Package",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "pkgLabel",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "pkgName",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 453,
+      "name": "Package Updated",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "pkgLabel",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "pkgName",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 451,
+      "name": "Package Removed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Package",
+          "constraints": "pkgName",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 307,
+      "name": "Monitor Start",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 303,
+      "name": "Timer Change",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Task",
+          "constraints": "m",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 460,
+      "name": "Wallpaper Changed",
+      "arguments": [],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 3060,
+      "name": "Variable Cleared",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Variable",
+          "constraints": "var",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "User Variables Only",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 3050,
+      "name": "Variable Set",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Variable",
+          "constraints": "var",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Value",
+          "constraints": "inpval",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Int",
+          "name": "User Variables Only",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 201,
+      "name": "Assistance Request",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "App",
+          "name": "App",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "URL",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Texts",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Extras",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 3071,
+      "name": "Zoom Click",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Widget Name",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Element Name",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 463,
+      "name": "New Window",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Label",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Window Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 461,
+      "name": "Notification",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "App",
+          "name": "Owner Application",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Title",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Text",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Subtext",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Messages",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Str",
+          "name": "Other Text",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 6,
+          "xml_type": "Str",
+          "name": "Cat",
+          "constraints": "ncat",
+          "description": ""
+        },
+        {
+          "position": 7,
+          "xml_type": "Int",
+          "name": "New Only",
+          "constraints": "true",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 464,
+      "name": "Notification Removed",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "App",
+          "name": "Owner Application",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Title",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Text",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Subtext",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Str",
+          "name": "Other Text",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 5,
+          "xml_type": "Str",
+          "name": "Cat",
+          "constraints": "ncat",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2000,
+      "name": "Notification Click",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "App",
+          "name": "Owner Application",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Title",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2050,
+      "name": "Quick Setting Clicked",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "Label",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2075,
+      "name": "Custom Setting",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "sset",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Value",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2076,
+      "name": "NFC Tag",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "ID",
+          "constraints": "nfctid",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Content",
+          "constraints": "nfctcont",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 2079,
+      "name": "Volume Long Press",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Additional Time (Check Help)",
+          "constraints": "buttprsti",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 425,
+      "name": "K9 Email Received",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "From",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Subject",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Receiving Account",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 446,
+      "name": "Gentle Alarm",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Message",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "Profile",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 4,
+          "xml_type": "Int",
+          "name": "Type",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 428,
+      "name": "Kaloer Clock",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Name",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 448,
+      "name": "Notify My Android",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Str",
+          "name": "App",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Str",
+          "name": "Event",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Description",
+          "constraints": "t",
+          "description": ""
+        },
+        {
+          "position": 3,
+          "xml_type": "Str",
+          "name": "URL",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 444,
+      "name": "Pomodroido",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 445,
+      "name": "Radardroid",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 447,
+      "name": "Reddit Notify",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 1,
+          "xml_type": "Int",
+          "name": "Number",
+          "constraints": "",
+          "description": ""
+        },
+        {
+          "position": 2,
+          "xml_type": "Str",
+          "name": "Message",
+          "constraints": "t",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 424,
+      "name": "Screebl / TSC",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Within Range",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 426,
+      "name": "Widget Locker",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    },
+    {
+      "kind": "event_context",
+      "code": 427,
+      "name": "OpenWatch",
+      "arguments": [
+        {
+          "position": 0,
+          "xml_type": "Int",
+          "name": "Event",
+          "constraints": "",
+          "description": ""
+        }
+      ],
+      "output_variables": [],
+      "tasker_version": "6.7.6-beta",
+      "source": {
+        "authority": "official_catalog",
+        "file": "tasker_ai_system_instructions.txt",
+        "line": 13
+      }
+    }
+  ]
+}

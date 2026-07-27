@@ -1,0 +1,426 @@
+{
+  "schema": "hermes-tasker-catalog/v1",
+  "source": {
+    "authority": "official_catalog",
+    "file": "/home/ubuntu/.hermes/webui/attachments/1a70f5adaf22/tasker_ai_system_instructions.txt",
+    "line": 1106
+  },
+  "items": [
+    {
+      "n": "%AIR",
+      "d": "Airplane Mode Status"
+    },
+    {
+      "n": "%AIRR",
+      "d": "Airplane Radios"
+    },
+    {
+      "n": "%BATT",
+      "d": "Battery Level"
+    },
+    {
+      "n": "%BLUE",
+      "d": "Bluetooth Status"
+    },
+    {
+      "n": "%CALS",
+      "d": "Calendar List"
+    },
+    {
+      "n": "%CALTITLE",
+      "d": "Calendar Event Title"
+    },
+    {
+      "n": "%CALDESCR",
+      "d": "Calendar Event Descr"
+    },
+    {
+      "n": "%CALLOC",
+      "d": "Calendar Event Location"
+    },
+    {
+      "n": "%CDATE",
+      "d": "Call Date (In)"
+    },
+    {
+      "n": "%CNAME",
+      "d": "Caller Name (In)"
+    },
+    {
+      "n": "%CNUM",
+      "d": "Caller Number (In)"
+    },
+    {
+      "n": "%CTIME",
+      "d": "Call Time (In)"
+    },
+    {
+      "n": "%CODATE",
+      "d": "Call Date (Out)"
+    },
+    {
+      "n": "%CODUR",
+      "d": "Call Duration (Out)"
+    },
+    {
+      "n": "%CONAME",
+      "d": "Called Name (Out)"
+    },
+    {
+      "n": "%CONUM",
+      "d": "Called Number (Out)"
+    },
+    {
+      "n": "%COTIME",
+      "d": "Call Time (Out)"
+    },
+    {
+      "n": "%CELLID",
+      "d": "Cell ID"
+    },
+    {
+      "n": "%CELLSIG",
+      "d": "Cell Signal Strength"
+    },
+    {
+      "n": "%CELLSRV",
+      "d": "Cell Service State"
+    },
+    {
+      "n": "%CLIP",
+      "d": "Clipboard Contents"
+    },
+    {
+      "n": "%CPUFREQ",
+      "d": "CPU Frequency"
+    },
+    {
+      "n": "%CPUGOV",
+      "d": "CPU Governor"
+    },
+    {
+      "n": "%DATE",
+      "d": "Date"
+    },
+    {
+      "n": "%DAYM",
+      "d": "Day Of Month"
+    },
+    {
+      "n": "%DAYW",
+      "d": "Day Of Week"
+    },
+    {
+      "n": "%DEVID",
+      "d": "Device ID"
+    },
+    {
+      "n": "%DEVMAN",
+      "d": "Device Manufacturer"
+    },
+    {
+      "n": "%DEVMOD",
+      "d": "Device Model"
+    },
+    {
+      "n": "%DEVPROD",
+      "d": "Device Product"
+    },
+    {
+      "n": "%DEVTID",
+      "d": "Device Telephony ID"
+    },
+    {
+      "n": "%BRIGHT",
+      "d": "Display Brightness"
+    },
+    {
+      "n": "%DTOUT",
+      "d": "Display Timeout"
+    },
+    {
+      "n": "%EFROM",
+      "d": "Email From"
+    },
+    {
+      "n": "%ECC",
+      "d": "Email Cc"
+    },
+    {
+      "n": "%ESUBJ",
+      "d": "Email Subject"
+    },
+    {
+      "n": "%EDATE",
+      "d": "Email Date"
+    },
+    {
+      "n": "%ETIME",
+      "d": "Email Time"
+    },
+    {
+      "n": "%MEMF",
+      "d": "Free Memory"
+    },
+    {
+      "n": "%GPS",
+      "d": "GPS Status"
+    },
+    {
+      "n": "%HEART",
+      "d": "Heart Rate"
+    },
+    {
+      "n": "%HTTPR",
+      "d": "HTTP Response Code"
+    },
+    {
+      "n": "%HTTPD",
+      "d": "HTTP Data"
+    },
+    {
+      "n": "%HTTPL",
+      "d": "HTTP Content Length"
+    },
+    {
+      "n": "%HUMIDITY",
+      "d": "Humidity"
+    },
+    {
+      "n": "%IMETHOD",
+      "d": "Input Method"
+    },
+    {
+      "n": "%INTERRUPT",
+      "d": "Interrupt Mode"
+    },
+    {
+      "n": "%KEYG",
+      "d": "Keyguard Status"
+    },
+    {
+      "n": "%LAPP",
+      "d": "Last Application"
+    },
+    {
+      "n": "%FOTO",
+      "d": "Last Photo"
+    },
+    {
+      "n": "%LIGHT",
+      "d": "Light Level"
+    },
+    {
+      "n": "%LOC",
+      "d": "Location"
+    },
+    {
+      "n": "%LOCACC",
+      "d": "Location Accuracy"
+    },
+    {
+      "n": "%LOCALT",
+      "d": "Location Altitude"
+    },
+    {
+      "n": "%LOCSPD",
+      "d": "Location Speed"
+    },
+    {
+      "n": "%LOCTMS",
+      "d": "Location Fix Time Secs"
+    },
+    {
+      "n": "%LOCN",
+      "d": "Location (Net)"
+    },
+    {
+      "n": "%LOCNACC",
+      "d": "Location Accuracy (Net)"
+    },
+    {
+      "n": "%LOCNTMS",
+      "d": "Location Fix Time Secs (Net)"
+    },
+    {
+      "n": "%MFIELD",
+      "d": "Magnetic Field Strength"
+    },
+    {
+      "n": "%MTRACK",
+      "d": "Music Track"
+    },
+    {
+      "n": "%MUTED",
+      "d": "Muted"
+    },
+    {
+      "n": "%NIGHT",
+      "d": "Night Mode"
+    },
+    {
+      "n": "%NTITLE",
+      "d": "Notification Title"
+    },
+    {
+      "n": "%PNUM",
+      "d": "Phone Number"
+    },
+    {
+      "n": "%PRESSURE",
+      "d": "Pressure"
+    },
+    {
+      "n": "%PACTIVE",
+      "d": "Profiles Active"
+    },
+    {
+      "n": "%PENABLED",
+      "d": "Profiles Enabled"
+    },
+    {
+      "n": "%ROAM",
+      "d": "Roaming"
+    },
+    {
+      "n": "%ROOT",
+      "d": "Root Available"
+    },
+    {
+      "n": "%SCREEN",
+      "d": "Screen"
+    },
+    {
+      "n": "%SDK",
+      "d": "SDK Version"
+    },
+    {
+      "n": "%SILENT",
+      "d": "Silent Mode"
+    },
+    {
+      "n": "%SIMNUM",
+      "d": "SIM Serial Number"
+    },
+    {
+      "n": "%SIMSTATE",
+      "d": "SIM State"
+    },
+    {
+      "n": "%SPHONE",
+      "d": "Speakerphone"
+    },
+    {
+      "n": "%SPEECH",
+      "d": "Speech"
+    },
+    {
+      "n": "%TRUN",
+      "d": "Tasks Running"
+    },
+    {
+      "n": "%TNET",
+      "d": "Telephone Network Operator"
+    },
+    {
+      "n": "%SMSRF",
+      "d": "Text From"
+    },
+    {
+      "n": "%SMSRN",
+      "d": "Text From Name"
+    },
+    {
+      "n": "%SMSRB",
+      "d": "Text Body"
+    },
+    {
+      "n": "%SMSRD",
+      "d": "Text Date"
+    },
+    {
+      "n": "%MMSRS",
+      "d": "Text Subject"
+    },
+    {
+      "n": "%SMSRT",
+      "d": "Text Time"
+    },
+    {
+      "n": "%TEMP",
+      "d": "Temperature (Celsius)"
+    },
+    {
+      "n": "%TETHER",
+      "d": "Tether"
+    },
+    {
+      "n": "%TIME",
+      "d": "Time"
+    },
+    {
+      "n": "%TIMEMS",
+      "d": "Time MilliSeconds"
+    },
+    {
+      "n": "%TIMES",
+      "d": "Time Seconds"
+    },
+    {
+      "n": "%UIMODE",
+      "d": "UI Mode"
+    },
+    {
+      "n": "%UPS",
+      "d": "Uptime Seconds"
+    },
+    {
+      "n": "%VOICE",
+      "d": "Voice Results"
+    },
+    {
+      "n": "%VOLA",
+      "d": "Volume - Alarm"
+    },
+    {
+      "n": "%VOLC",
+      "d": "Volume - Call"
+    },
+    {
+      "n": "%VOLD",
+      "d": "Volume - DTMF"
+    },
+    {
+      "n": "%VOLM",
+      "d": "Volume - Media"
+    },
+    {
+      "n": "%VOLN",
+      "d": "Volume - Notification"
+    },
+    {
+      "n": "%VOLR",
+      "d": "Volume - Ringer"
+    },
+    {
+      "n": "%VOLS",
+      "d": "Volume - System"
+    },
+    {
+      "n": "%WIFII",
+      "d": "WiFi Info"
+    },
+    {
+      "n": "%WIFI",
+      "d": "WiFi Status"
+    },
+    {
+      "n": "%WIMAX",
+      "d": "Wimax Status"
+    },
+    {
+      "n": "%WIN",
+      "d": "Window Label"
+    }
+  ]
+}
