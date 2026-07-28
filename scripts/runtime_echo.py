@@ -7,6 +7,8 @@ from typing import Any, Mapping
 
 
 RUNTIME_ECHO_CAPABILITY = "runtime.echo"
+RUNTIME_ECHO_TASK_ID = 910001
+RUNTIME_ECHO_TASK_NAME = "Hermes Runtime Echo v1"
 _REQUIRED_FIELDS = ("capability", "payload", "command_id", "result_token")
 _MAX_PAYLOAD_LENGTH = 1024
 _MAX_IDENTIFIER_LENGTH = 256
@@ -105,3 +107,38 @@ class RuntimeEchoInvocation:
 
     def to_json(self) -> str:
         return json.dumps(self.to_mapping(), sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+    def expected_result(self) -> dict[str, str]:
+        return {
+            "capability": self.capability_id,
+            "command_id": self.invocation_id,
+            "payload": self.payload,
+            "result_token": self.result_token,
+            "status": "success",
+        }
+
+    def to_legacy_tasker_request(self) -> dict[str, Any]:
+        """Narrow, deterministic bridge to the established renderer request shape."""
+        return_value = json.dumps(
+            self.expected_result(), sort_keys=True, separators=(",", ":"), ensure_ascii=False
+        )
+        return {
+            "tasker_version": "6.7.6-beta",
+            "artifact_spec": {
+                "artifact_type": "task",
+                "id": RUNTIME_ECHO_TASK_ID,
+                "name": RUNTIME_ECHO_TASK_NAME,
+                "effects": ["runtime.echo"],
+                "requirements": {"tasker": True},
+                "actions": [{
+                    "code": 126,
+                    "arguments": [
+                        {"position": 0, "value": return_value},
+                        {"position": 1, "value": 1},
+                        {"position": 2, "value": 0},
+                        {"position": 3, "value": 0},
+                        {"position": 4, "value": ""},
+                    ],
+                }],
+            },
+        }

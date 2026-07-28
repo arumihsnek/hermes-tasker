@@ -108,6 +108,17 @@ class RuntimeEchoInvocationTests(unittest.TestCase):
                 payload="payload",
             )
 
+    def test_adapts_only_valid_ir_to_legacy_renderer_request(self):
+        invocation = RuntimeEchoInvocation.from_spec(self.spec())
+        request = invocation.to_legacy_tasker_request()
+        self.assertEqual(request["artifact_spec"]["artifact_type"], "task")
+        self.assertEqual(request["artifact_spec"]["actions"][0]["code"], 126)
+        self.assertIn("runtime-echo-command-v1", request["artifact_spec"]["actions"][0]["arguments"][0]["value"])
+
+    def test_adapter_output_is_deterministic(self):
+        invocation = RuntimeEchoInvocation.from_spec(self.spec())
+        self.assertEqual(invocation.to_legacy_tasker_request(), invocation.to_legacy_tasker_request())
+
 
 if __name__ == "__main__":
     unittest.main()
