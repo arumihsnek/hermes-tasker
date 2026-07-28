@@ -5,7 +5,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
 
-from runtime_echo import RuntimeEchoSpec, RuntimeEchoValidationError
+from runtime_echo import (
+    RuntimeEchoInvocation,
+    RuntimeEchoSpec,
+    RuntimeEchoValidationError,
+)
 
 
 class RuntimeEchoSpecTests(unittest.TestCase):
@@ -57,6 +61,52 @@ class RuntimeEchoSpecTests(unittest.TestCase):
             spec.to_json(),
             '{"capability":"runtime.echo","command_id":"runtime-echo-command-v1","payload":"hello runtime","result_token":"runtime-echo-token-v1"}',
         )
+
+
+class RuntimeEchoInvocationTests(unittest.TestCase):
+    def spec(self, **overrides):
+        value = {
+            "capability": "runtime.echo",
+            "payload": "hello runtime",
+            "command_id": "runtime-echo-command-v1",
+            "result_token": "runtime-echo-token-v1",
+        }
+        value.update(overrides)
+        return RuntimeEchoSpec.from_mapping(value)
+
+    def test_converts_spec_to_semantic_ir(self):
+        invocation = RuntimeEchoInvocation.from_spec(self.spec())
+        self.assertEqual(invocation.capability_id, "runtime.echo")
+        self.assertEqual(invocation.invocation_id, "runtime-echo-command-v1")
+        self.assertEqual(invocation.payload, "hello runtime")
+
+    def test_is_deterministic_and_has_value_equality(self):
+        self.assertEqual(
+            RuntimeEchoInvocation.from_spec(self.spec()),
+            RuntimeEchoInvocation.from_spec(self.spec()),
+        )
+        self.assertEqual(
+            RuntimeEchoInvocation.from_spec(self.spec()).to_json(),
+            RuntimeEchoInvocation.from_spec(self.spec()).to_json(),
+        )
+
+    def test_has_no_xml_or_transport_representation(self):
+        invocation = RuntimeEchoInvocation.from_spec(self.spec())
+        self.assertEqual(
+            set(invocation.to_mapping()),
+            {"capability_id", "invocation_id", "payload", "result_token"},
+        )
+        self.assertNotIn("<", invocation.to_json())
+        self.assertNotIn("transport", invocation.to_json())
+
+    def test_rejects_impossible_capability(self):
+        with self.assertRaisesRegex(RuntimeEchoValidationError, "unsupported capability"):
+            RuntimeEchoInvocation(
+                capability_id="runtime.other",
+                invocation_id="id",
+                result_token="token",
+                payload="payload",
+            )
 
 
 if __name__ == "__main__":

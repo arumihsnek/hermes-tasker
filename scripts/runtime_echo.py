@@ -65,3 +65,43 @@ class RuntimeEchoSpec:
 
     def to_json(self) -> str:
         return json.dumps(self.to_mapping(), sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
+@dataclass(frozen=True)
+class RuntimeEchoInvocation:
+    """Validated semantic IR for one Runtime Echo invocation."""
+
+    capability_id: str
+    invocation_id: str
+    result_token: str
+    payload: str
+
+    def __post_init__(self) -> None:
+        RuntimeEchoSpec.from_mapping({
+            "capability": self.capability_id,
+            "command_id": self.invocation_id,
+            "result_token": self.result_token,
+            "payload": self.payload,
+        })
+
+    @classmethod
+    def from_spec(cls, spec: RuntimeEchoSpec) -> "RuntimeEchoInvocation":
+        if not isinstance(spec, RuntimeEchoSpec):
+            raise RuntimeEchoValidationError("spec must be a RuntimeEchoSpec")
+        return cls(
+            capability_id=spec.capability,
+            invocation_id=spec.command_id,
+            result_token=spec.result_token,
+            payload=spec.payload,
+        )
+
+    def to_mapping(self) -> dict[str, str]:
+        return {
+            "capability_id": self.capability_id,
+            "invocation_id": self.invocation_id,
+            "payload": self.payload,
+            "result_token": self.result_token,
+        }
+
+    def to_json(self) -> str:
+        return json.dumps(self.to_mapping(), sort_keys=True, separators=(",", ":"), ensure_ascii=False)
