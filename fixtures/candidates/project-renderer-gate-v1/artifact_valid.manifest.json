@@ -1,0 +1,13 @@
+{
+  "schema": "hermes-tasker-artifact/v1",
+  "artifact_type": "project",
+  "tasker_version": "6.7.6-beta",
+  "name": "Project Renderer Gate v1",
+  "effects": [],
+  "requirements": {
+    "tasker": true
+  },
+  "import_method": "visual_project_import",
+  "confirmation_required": true,
+  "source_evidence": "official_catalog_and_6_7_6_beta_exports"
+}
