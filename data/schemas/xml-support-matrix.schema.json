@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "tasker_version", "entries"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "tasker_version": {"type": "string", "minLength": 1},
+    "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}}
+  },
+  "additionalProperties": false,
+  "$defs": {"entry": {"type":"object", "required":["kind","identifier","name","evidence_level","renderer_support","validator_support","fixture_paths","fixture_hashes","golden_paths","mutable_fields","fixed_fields","supported_variants","unsupported_variants","provenance","notes"], "properties": {"kind":{"enum":["action","event","state","day","location","time","app","plugin"]},"identifier":{"type":"string","minLength":1},"name":{"type":"string"},"evidence_level":{"enum":["catalog_only","fixture_backed","renderer_golden","roundtrip_exact","runtime_verified","unsupported"]},"catalog_ref":{"type":"object"},"fixture_paths":{"type":"array","items":{"type":"string"}},"fixture_hashes":{"type":"array","items":{"type":"string","pattern":"^[0-9a-f]{64}$"}},"contract_path":{"type":["string","null"]},"renderer_support":{"type":"boolean"},"validator_support":{"type":"boolean"},"golden_paths":{"type":"array","items":{"type":"string"}},"mutable_fields":{"type":"array","items":{"type":"string"}},"fixed_fields":{"type":"array","items":{"type":"string"}},"supported_variants":{"type":"array","items":{"type":"string"}},"unsupported_variants":{"type":"array","items":{"type":"string"}},"provenance":{"type":"object","required":["source","device","tasker_version","captured_at"],"properties":{"source":{"type":"string"},"device":{"type":"string"},"tasker_version":{"type":"string"},"captured_at":{"type":"string"}},"additionalProperties":false},"notes":{"type":"array","items":{"type":"string"}}}, "additionalProperties":false}}
+}
