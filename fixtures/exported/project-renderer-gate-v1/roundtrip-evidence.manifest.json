@@ -1,0 +1,24 @@
+{
+  "schema": "hermes-tasker-roundtrip-evidence/v1",
+  "run_id": "run-20260728T004816Z-43023f",
+  "gate_commit": "26065edc870710b747bf9f4ac243f35180dfdd0c",
+  "tasker": {
+    "version": "6.7.6-beta",
+    "device": "Pixel 8",
+    "android_release": "17"
+  },
+  "candidate": {
+    "path": "fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml",
+    "sha256": "0ec73026b83dedade63905d74bb3f3e502f7dc6e10f617d58232dbd03b3e3ba1"
+  },
+  "reexport": {
+    "path": "fixtures/exported/project-renderer-gate-v1/artifact.reexported.prj.xml",
+    "sha256": "0ec73026b83dedade63905d74bb3f3e502f7dc6e10f617d58232dbd03b3e3ba1"
+  },
+  "comparison_command": "python3 scripts/verify_roundtrip_evidence.py",
+  "external_source": {
+    "path": "/home/ubuntu/evidence/tasker-roundtrip/run-20260728T004816Z-43023f",
+    "provenance_only": true,
+    "ci_dependency": false
+  }
+}
