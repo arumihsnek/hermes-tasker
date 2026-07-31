@@ -1,0 +1,1946 @@
+<TaskerData sr="" dvi="1" tv="6.7.6-beta">
+	<Profile sr="prof560" ve="2">
+		<cdate>1785418546016</cdate>
+		<clp>true</clp>
+		<edate>1785418219368</edate>
+		<flags>40</flags>
+		<id>560</id>
+		<mid0>554</mid0>
+		<nme>Hermes · Remote Task Import v2.4</nme>
+		<Event sr="con0" ve="2">
+			<code>599</code>
+			<Str sr="arg0" ve="3">com.hermes.tasker.v2.4.IMPORT_TASK</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+		</Event>
+	</Profile>
+	<Profile sr="prof561" ve="2">
+		<cdate>1785418546018</cdate>
+		<clp>true</clp>
+		<edate>1785418219368</edate>
+		<flags>40</flags>
+		<id>561</id>
+		<mid0>553</mid0>
+		<nme>Hermes · Result Probe v2.4</nme>
+		<Event sr="con0" ve="2">
+			<code>599</code>
+			<Str sr="arg0" ve="3">com.hermes.tasker.v2.4.PROBE_RESULT</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+		</Event>
+	</Profile>
+	<Profile sr="prof562" ve="2">
+		<cdate>1785418546022</cdate>
+		<clp>true</clp>
+		<edate>1785418219368</edate>
+		<flags>40</flags>
+		<id>562</id>
+		<mid0>551</mid0>
+		<nme>Hermes · Remote Task Runner v2.4</nme>
+		<Event sr="con0" ve="2">
+			<code>599</code>
+			<Str sr="arg0" ve="3">com.hermes.tasker.v2.4.RUN_TASK</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+		</Event>
+	</Profile>
+	<Project sr="proj0" ve="2">
+		<cdate>1785418219368</cdate>
+		<id>01e03660-af47-448c-ba6a-8781dd45954e</id>
+		<name>Hermes Task Runtime v2.4</name>
+		<pids>561,560,562</pids>
+		<tids>552,563,554,553,551,555</tids>
+	</Project>
+	<Task sr="task551">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>551</id>
+		<nme>Hermes · Run Task v2.4</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Hermes v2.4 · Preparando Task Runner…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Materialize Run inputs as real Tasker locals for native actions. */
+task_name_value = tasker.getVariable("task_name");
+arg1_value = tasker.getVariable("arg1");
+arg2_value = tasker.getVariable("arg2");
+command_id_value = tasker.getVariable("command_id");
+result_token_value = tasker.getVariable("result_token");
+priority_text = tasker.getVariable("priority");
+
+if (task_name_value == null) task_name_value = "";
+if (command_id_value == null) command_id_value = "";
+if (result_token_value == null) result_token_value = "";
+if (priority_text == null) priority_text = "";
+
+/* Accept both the current arg1/arg2 contract and legacy par1/par2 names. */
+if (arg1_value == null || arg1_value.length() == 0) {
+    arg1_value = tasker.getVariable("par1");
+}
+if (arg2_value == null || arg2_value.length() == 0) {
+    arg2_value = tasker.getVariable("par2");
+}
+if (arg1_value == null) arg1_value = "";
+if (arg2_value == null) arg2_value = "";
+
+run_priority_value = 7;
+run_error_value = "";
+
+if (task_name_value.length() == 0) {
+    run_error_value = "missing_task_name";
+} else if (task_name_value.indexOf("Hermes · Capability · ") != 0) {
+    run_error_value = "task_not_allowed";
+}
+
+if (run_error_value.length() == 0 &amp;&amp; priority_text.length() &gt; 0) {
+    try {
+        run_priority_value = java.lang.Integer.parseInt(priority_text);
+        if (!java.lang.String.valueOf(run_priority_value).equals(priority_text)) {
+            run_error_value = "invalid_priority";
+        } else if (run_priority_value &lt; 0 || run_priority_value &gt; 50) {
+            run_error_value = "invalid_priority";
+        }
+    } catch (java.lang.NumberFormatException priority_error) {
+        run_error_value = "invalid_priority";
+    }
+}
+
+tasker.setVariable("run_task_name", task_name_value);
+tasker.setVariable("run_par1", arg1_value);
+tasker.setVariable("run_par2", arg2_value);
+tasker.setVariable("run_command_id", command_id_value);
+tasker.setVariable("run_result_token", result_token_value);
+tasker.setVariable("run_priority", java.lang.String.valueOf(run_priority_value));
+tasker.setVariable("run_error", run_error_value);
+tasker.setVariable("run_child_result", "");
+
+tasker.log(
+    "Hermes run init task=" + task_name_value
+    + ";arg1_len=" + arg1_value.length()
+    + ";arg2_len=" + arg2_value.length()
+    + ";priority=" + run_priority_value
+    + ";error=" + run_error_value
+);
+
+return run_error_value;</Str>
+			<Str sr="arg1" ve="3">%run_error</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%err</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Run Perform Task failed - reads Intent extras + native outputs. */
+command_id = tasker.getVariable("command_id");
+task_name = tasker.getVariable("task_name");
+result_token = tasker.getVariable("result_token");
+if (command_id == null) command_id = "";
+if (task_name == null) task_name = "";
+if (result_token == null) result_token = "";
+now = java.lang.System.currentTimeMillis();
+
+result = new org.json.JSONObject();
+result.put("ok", false);
+result.put("command_id", command_id);
+result.put("task_name", task_name);
+result.put("error_code", "perform_task_failed");
+result.put("tasker_error", tasker.getVariable("err") != null ? tasker.getVariable("err") : "");
+result.put("error_message", tasker.getVariable("errmsg") != null ? tasker.getVariable("errmsg") : "");
+result.put("finished_at_ms", now);
+result_json = result.toString();
+
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "run");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+envelope_json = envelope.toString();
+/* Submit via ContentProvider */
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope_json);
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        "submit_result", null, extras);
+    if (reply == null) {
+        provider_output = "accepted=false;reason=null_reply";
+    } else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable e) {
+    provider_output = "accepted=false;reason=exception:" + e.getClass().getName() + ":" + String.valueOf(e.getMessage());
+}
+tasker.setVariable("run_result_json", result_json, true);
+tasker.setVariable("HermesLastRun", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+tasker.log("Hermes provider " + provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes</Str>
+			<Str sr="arg1" ve="3">%run_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Falló %run_task_name</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Run success / missing_return - reads Intent extras + native run_child_result. */
+command_id = tasker.getVariable("command_id");
+task_name = tasker.getVariable("task_name");
+result_token = tasker.getVariable("result_token");
+child_result = tasker.getVariable("run_child_result");
+if (command_id == null) command_id = "";
+if (task_name == null) task_name = "";
+if (result_token == null) result_token = "";
+if (child_result == null) child_result = "";
+now = java.lang.System.currentTimeMillis();
+
+result = new org.json.JSONObject();
+result.put("command_id", command_id);
+result.put("task_name", task_name);
+result.put("finished_at_ms", now);
+if (child_result.length() == 0) {
+    result.put("ok", false);
+    result.put("error_code", "missing_return");
+    result.put("error_message", "Capability returned no value");
+} else {
+    result.put("ok", true);
+    result.put("result", child_result);
+}
+result_json = result.toString();
+
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "run");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+envelope_json = envelope.toString();
+/* Submit via ContentProvider */
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope_json);
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        "submit_result", null, extras);
+    if (reply == null) {
+        provider_output = "accepted=false;reason=null_reply";
+    } else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable e) {
+    provider_output = "accepted=false;reason=exception:" + e.getClass().getName() + ":" + String.valueOf(e.getMessage());
+}
+tasker.setVariable("run_result_json", result_json, true);
+tasker.setVariable("HermesLastRun", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+tasker.log("Hermes provider " + provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes</Str>
+			<Str sr="arg1" ve="3">%run_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Resultado listo: %run_task_name</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act19" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%run_error</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Run validation error - reads Intent extras directly. */
+command_id = tasker.getVariable("command_id");
+task_name = tasker.getVariable("task_name");
+priority_raw = tasker.getVariable("priority");
+if (command_id == null) command_id = "";
+if (task_name == null) task_name = "";
+if (priority_raw == null) priority_raw = "";
+now = java.lang.System.currentTimeMillis();
+
+/* Replicate validation */
+error_code = "";
+if (task_name.length() == 0) error_code = "missing_task_name";
+else if (task_name.indexOf("Hermes · Capability · ") != 0) error_code = "task_not_allowed";
+if (error_code.length() == 0 &amp;&amp; priority_raw.length() &gt; 0) {
+    try {
+        priority_val = java.lang.Integer.parseInt(priority_raw);
+        if (!java.lang.String.valueOf(priority_val).equals(priority_raw)) {
+            error_code = "invalid_priority";
+        } else if (priority_val &lt; 0 || priority_val &gt; 50) {
+            error_code = "invalid_priority";
+        }
+    } catch (java.lang.NumberFormatException priority_error) {
+        error_code = "invalid_priority";
+    }
+}
+
+result = new org.json.JSONObject();
+result.put("ok", false);
+result.put("command_id", command_id);
+result.put("task_name", task_name);
+result.put("error_code", error_code);
+result.put("error_message", error_code);
+result.put("finished_at_ms", now);
+result_json = result.toString();
+
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "run");
+envelope.put("command_id", command_id);
+envelope.put("result_token", tasker.getVariable("result_token") != null ? tasker.getVariable("result_token") : "");
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+envelope_json = envelope.toString();
+/* Submit via ContentProvider */
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope_json);
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        "submit_result", null, extras);
+    if (reply == null) {
+        provider_output = "accepted=false;reason=null_reply";
+    } else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable e) {
+    provider_output = "accepted=false;reason=exception:" + e.getClass().getName() + ":" + String.valueOf(e.getMessage());
+}
+tasker.setVariable("run_result_json", result_json, true);
+tasker.setVariable("HermesLastRun", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+tasker.log("Hermes provider " + provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes</Str>
+			<Str sr="arg1" ve="3">%run_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Error: %run_error</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Ejecutando %run_task_name…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>130</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">%run_task_name</Str>
+			<Int sr="arg1">
+				<var>%run_priority</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3">%run_par1</Str>
+			<Str sr="arg3" ve="3">%run_par2</Str>
+			<Str sr="arg4" ve="3">%run_child_result</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+	</Task>
+	<Task sr="task552">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>552</id>
+		<nme>Hermes · Capability · Smoke v1</nme>
+		<Action sr="act0" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Build a real structured return value without JavaScriptlet handoff. */
+input1 = tasker.getVariable("par1");
+input2 = tasker.getVariable("par2");
+
+if (input1 == null) input1 = "";
+if (input2 == null) input2 = "";
+
+result = new org.json.JSONObject();
+result.put("ok", true);
+result.put("capability", "smoke.v1");
+result.put("par1", input1);
+result.put("par2", input2);
+result.put(
+    "timestamp_ms",
+    java.lang.System.currentTimeMillis()
+);
+
+result_json = result.toString();
+
+tasker.setVariable(
+    "result_json",
+    result_json,
+    true
+);
+
+return result_json;</Str>
+			<Str sr="arg1" ve="3">%result_json</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>126</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">%result_json</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+	<Task sr="task553">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>553</id>
+		<nme>Hermes · Result Probe v2.4</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Enviando probe Hermes…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Build probe result JSON, envelope, and submit via ContentProvider. */
+command_id = tasker.getVariable("command_id");
+result_token = tasker.getVariable("result_token");
+probe_token = tasker.getVariable("probe_token");
+if (command_id == null) command_id = "";
+if (result_token == null) result_token = "";
+if (probe_token == null) probe_token = "";
+now = java.lang.System.currentTimeMillis();
+
+// Build result JSON
+result = new org.json.JSONObject();
+result.put("ok", true);
+result.put("command_id", command_id);
+result.put("probe_token", probe_token);
+result.put("schema", "hermes-tasker-probe-result/v1");
+result.put("finished_at_ms", now);
+result_json = result.toString();
+
+// Build envelope JSON
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "probe");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+envelope_json = envelope.toString();
+
+// Submit via ContentProvider
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope_json);
+    
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        "submit_result",
+        null,
+        extras
+    );
+    
+    if (reply == null) {
+        provider_output = "accepted=false;reason=null_reply";
+    } else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable e) {
+    provider_output = "accepted=false;reason=exception:" + e.getClass().getName() + ":" + String.valueOf(e.getMessage());
+}
+
+// Store results for Notify
+tasker.setVariable("probe_result_json", result_json, true);
+tasker.setVariable("HermesLastProbe", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+tasker.log("Hermes provider " + provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes</Str>
+			<Str sr="arg1" ve="3">%probe_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Probe Hermes finalizado</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+	</Task>
+	<Task sr="task554">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>554</id>
+		<nme>Hermes · Import Task v2.4</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Hermes v2.4 · Validando XML recibido…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/*
+ * NATIVE_ACTION_NOT_USED:
+ * Tasker has no native action that hashes exact UTF-8 bytes and classifies a
+ * Tasker export without mutating it. This is intentionally a narrow scanner,
+ * not a DOM parser. Deep graph validation remains the host's responsibility.
+ *
+ * INPUTS: data, command_id, result_token
+ * OUTPUTS: import_xml, import_error, import_artifact_type, import_name,
+ *          import_sha256, import_verify_type, import_command_id,
+ *          import_result_token
+ */
+command_id = tasker.getVariable("command_id");
+result_token = tasker.getVariable("result_token");
+data_xml = tasker.getVariable("data");
+if (command_id == null) command_id = "";
+if (result_token == null) result_token = "";
+if (data_xml == null) data_xml = "";
+
+import_error = "";
+artifact_type = "";
+artifact_name = "";
+sha256_val = "";
+verify_type = "";
+
+if (data_xml.length() &gt; 0) {
+    try {
+        digest_bytes = java.security.MessageDigest.getInstance("SHA-256").digest(data_xml.getBytes("UTF-8"));
+        hex_buf = "";
+        for (digest_index = 0; digest_index &lt; digest_bytes.length; digest_index++) {
+            hex_part = java.lang.Integer.toHexString(digest_bytes[digest_index] &amp; 255);
+            if (hex_part.length() &lt; 2) hex_buf += "0";
+            hex_buf += hex_part;
+        }
+        sha256_val = hex_buf;
+    } catch (java.lang.Throwable hash_error) {
+        import_error = "sha256_failed";
+    }
+}
+
+if (import_error.length() == 0 &amp;&amp; data_xml.length() == 0) import_error = "missing_data";
+if (import_error.length() == 0 &amp;&amp; data_xml.getBytes("UTF-8").length &gt; 65536) import_error = "payload_too_large";
+if (import_error.length() == 0 &amp;&amp; data_xml.indexOf("eval(") &gt;= 0) import_error = "eval_policy";
+if (import_error.length() == 0 &amp;&amp; (data_xml.indexOf("&lt;!DOCTYPE") &gt;= 0 || data_xml.indexOf("&lt;!ENTITY") &gt;= 0)) import_error = "doctype_not_allowed";
+
+scan_xml = data_xml.trim();
+if (import_error.length() == 0 &amp;&amp; (scan_xml.indexOf("&lt;TaskerData") &lt; 0 || scan_xml.lastIndexOf("&lt;/TaskerData&gt;") &lt; 0)) import_error = "invalid_root";
+
+project_count = 0;
+profile_count = 0;
+task_count = 0;
+if (import_error.length() == 0) {
+    scan_pos = 0;
+    while ((scan_pos = scan_xml.indexOf("&lt;Project ", scan_pos)) &gt;= 0) { project_count++; scan_pos += 9; }
+    scan_pos = 0;
+    while ((scan_pos = scan_xml.indexOf("&lt;Profile ", scan_pos)) &gt;= 0) { profile_count++; scan_pos += 9; }
+    scan_pos = 0;
+    while ((scan_pos = scan_xml.indexOf("&lt;Task ", scan_pos)) &gt;= 0) { task_count++; scan_pos += 6; }
+
+    primary_start = -1;
+    primary_end = -1;
+    name_open = "";
+    name_close = "";
+
+    if (project_count == 1) {
+        artifact_type = "project";
+        verify_type = "11";
+        primary_start = scan_xml.indexOf("&lt;Project ");
+        primary_end = scan_xml.indexOf("&lt;/Project&gt;", primary_start);
+        name_open = "&lt;name&gt;";
+        name_close = "&lt;/name&gt;";
+    } else if (project_count == 0 &amp;&amp; profile_count == 1 &amp;&amp; task_count &gt;= 1) {
+        artifact_type = "profile";
+        verify_type = "5";
+        primary_start = scan_xml.indexOf("&lt;Profile ");
+        primary_end = scan_xml.indexOf("&lt;/Profile&gt;", primary_start);
+        name_open = "&lt;nme&gt;";
+        name_close = "&lt;/nme&gt;";
+    } else if (project_count == 0 &amp;&amp; profile_count == 0 &amp;&amp; task_count == 1) {
+        artifact_type = "task";
+        verify_type = "7";
+        primary_start = scan_xml.indexOf("&lt;Task ");
+        primary_end = scan_xml.indexOf("&lt;/Task&gt;", primary_start);
+        name_open = "&lt;nme&gt;";
+        name_close = "&lt;/nme&gt;";
+    } else {
+        import_error = "invalid_artifact_layout";
+    }
+
+    if (import_error.length() == 0 &amp;&amp; (primary_start &lt; 0 || primary_end &lt; 0)) import_error = "invalid_artifact_layout";
+    if (import_error.length() == 0) {
+        name_start = scan_xml.indexOf(name_open, primary_start);
+        name_end = name_start &gt;= 0 ? scan_xml.indexOf(name_close, name_start + name_open.length()) : -1;
+        if (name_start &lt; 0 || name_end &lt; 0 || name_end &gt; primary_end) import_error = "missing_name";
+        else artifact_name = scan_xml.substring(name_start + name_open.length(), name_end);
+    }
+
+    if (artifact_name != null) {
+        artifact_name = artifact_name.replace("&amp;lt;", "&lt;").replace("&amp;gt;", "&gt;").replace("&amp;quot;", "\"").replace("&amp;apos;", "'").replace("&amp;amp;", "&amp;");
+    }
+    if (import_error.length() == 0 &amp;&amp; (artifact_name == null || artifact_name.length() == 0)) import_error = "missing_name";
+    if (import_error.length() == 0 &amp;&amp; "task".equals(artifact_type) &amp;&amp; !artifact_name.startsWith("Hermes · Capability · ")) import_error = "invalid_task_prefix";
+    if (import_error.length() == 0 &amp;&amp; !"task".equals(artifact_type) &amp;&amp; !artifact_name.startsWith("Hermes")) import_error = "invalid_prefix";
+}
+
+tasker.setVariable("import_xml", data_xml, true);
+tasker.setVariable("import_error", import_error, true);
+tasker.setVariable("import_artifact_type", artifact_type, true);
+tasker.setVariable("import_name", artifact_name, true);
+tasker.setVariable("import_sha256", sha256_val, true);
+tasker.setVariable("import_verify_type", verify_type, true);
+tasker.setVariable("import_command_id", command_id, true);
+tasker.setVariable("import_result_token", result_token, true);
+tasker.setVariable("import_prepare_output", "type=" + artifact_type + ";name=" + artifact_name + ";error=" + import_error, true);
+return tasker.getVariable("import_prepare_output");</Str>
+			<Str sr="arg1" ve="3">%import_prepare_output</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>153</code>
+			<se>false</se>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">%import_xml</Str>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%err</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Silent Task import failed: final result. */
+command_id = tasker.getVariable("import_command_id"); result_token = tasker.getVariable("import_result_token");
+artifact_name = tasker.getVariable("import_name"); sha256_val = tasker.getVariable("import_sha256");
+if (command_id == null) command_id = ""; if (result_token == null) result_token = ""; if (artifact_name == null) artifact_name = ""; if (sha256_val == null) sha256_val = "";
+now = java.lang.System.currentTimeMillis();
+result = new org.json.JSONObject(); result.put("ok", false); result.put("terminal", true); result.put("operation", "import"); result.put("state", "IMPORT_FAILED");
+result.put("command_id", command_id); result.put("artifact_type", "task"); result.put("artifact_name", artifact_name); result.put("sha256", sha256_val);
+result.put("error_code", "import_data_failed"); result.put("tasker_error", tasker.getVariable("err") != null ? tasker.getVariable("err") : ""); result.put("error_message", tasker.getVariable("errmsg") != null ? tasker.getVariable("errmsg") : ""); result.put("finished_at_ms", now);
+result_json = result.toString();
+envelope = new org.json.JSONObject(); envelope.put("schema", "hermes-tasker-result/v1"); envelope.put("operation", "import"); envelope.put("command_id", command_id); envelope.put("result_token", result_token); envelope.put("terminal", true); envelope.put("state", "IMPORT_FAILED"); envelope.put("result_json", result_json); envelope.put("finished_at_ms", now);
+provider_output = "";
+try { extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString()); reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), "submit_result", null, extras); if (reply == null) provider_output = "accepted=false;reason=null_reply"; else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; } } catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true); tasker.setVariable("HermesLastImport", result_json, true); tasker.setVariable("provider_reply", provider_output); tasker.setVariable("HermesLastProviderReply", provider_output); return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes · Falló la importación</Str>
+			<Str sr="arg1" ve="3">%import_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<uri>android.resource://net.dinglisch.android.taskerm/drawable/mw_notification_adb</uri>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Silent Task import completed: final result. */
+command_id = tasker.getVariable("import_command_id"); result_token = tasker.getVariable("import_result_token"); artifact_name = tasker.getVariable("import_name"); sha256_val = tasker.getVariable("import_sha256");
+if (command_id == null) command_id = ""; if (result_token == null) result_token = ""; if (artifact_name == null) artifact_name = ""; if (sha256_val == null) sha256_val = "";
+now = java.lang.System.currentTimeMillis();
+result = new org.json.JSONObject(); result.put("ok", true); result.put("terminal", true); result.put("operation", "import"); result.put("state", "COMPLETED"); result.put("command_id", command_id); result.put("artifact_type", "task"); result.put("artifact_name", artifact_name); result.put("sha256", sha256_val); result.put("import_mode", "silent_task"); result.put("finished_at_ms", now);
+result_json = result.toString(); envelope = new org.json.JSONObject(); envelope.put("schema", "hermes-tasker-result/v1"); envelope.put("operation", "import"); envelope.put("command_id", command_id); envelope.put("result_token", result_token); envelope.put("terminal", true); envelope.put("state", "COMPLETED"); envelope.put("result_json", result_json); envelope.put("finished_at_ms", now);
+provider_output = "";
+try { extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString()); reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), "submit_result", null, extras); if (reply == null) provider_output = "accepted=false;reason=null_reply"; else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; } } catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true); tasker.setVariable("HermesLastImport", result_json, true); tasker.setVariable("provider_reply", provider_output); tasker.setVariable("HermesLastProviderReply", provider_output); return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes · Tarea importada</Str>
+			<Str sr="arg1" ve="3">%import_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<uri>android.resource://net.dinglisch.android.taskerm/drawable/mw_notification_adb</uri>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Tarea importada: %import_name</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act19" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_error</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act20" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act21" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Hermes v2.4 · Preparando importación con confirmación…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act22" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Stage Profile/Project privately; native Tasker Notify publishes the action button. */
+command_id = tasker.getVariable("import_command_id");
+result_token = tasker.getVariable("import_result_token");
+data_xml = tasker.getVariable("import_xml");
+artifact_type = tasker.getVariable("import_artifact_type");
+artifact_name = tasker.getVariable("import_name");
+sha256_val = tasker.getVariable("import_sha256");
+if (command_id == null) command_id = "";
+if (result_token == null) result_token = "";
+if (data_xml == null) data_xml = "";
+if (artifact_type == null) artifact_type = "";
+if (artifact_name == null) artifact_name = "";
+if (sha256_val == null) sha256_val = "";
+
+now = java.lang.System.currentTimeMillis();
+stage_error = "";
+pending_key = "";
+notification_title = "";
+try {
+    key_material = command_id + "\n" + sha256_val;
+    key_digest = java.security.MessageDigest.getInstance("SHA-256").digest(key_material.getBytes("UTF-8"));
+    key_hex = "";
+    for (key_index = 0; key_index &lt; key_digest.length; key_index++) {
+        key_part = java.lang.Integer.toHexString(key_digest[key_index] &amp; 255);
+        if (key_part.length() &lt; 2) key_hex += "0";
+        key_hex += key_part;
+    }
+    pending_key = key_hex.substring(0, 32);
+    notification_title = "Hermes · Import · " + pending_key;
+
+    pending_dir = new java.io.File(context.getFilesDir(), "hermes_pending_imports_v2_4");
+    if (!pending_dir.exists() &amp;&amp; !pending_dir.mkdirs()) throw new java.io.IOException("cannot_create_pending_dir");
+    xml_file = new java.io.File(pending_dir, pending_key + ".xml");
+    meta_file = new java.io.File(pending_dir, pending_key + ".json");
+    xml_tmp = new java.io.File(pending_dir, pending_key + ".xml.tmp");
+    meta_tmp = new java.io.File(pending_dir, pending_key + ".json.tmp");
+
+    xml_out = new java.io.FileOutputStream(xml_tmp, false);
+    xml_out.write(data_xml.getBytes("UTF-8"));
+    xml_out.flush();
+    xml_out.getFD().sync();
+    xml_out.close();
+
+    meta = new org.json.JSONObject();
+    meta.put("schema", "hermes-pending-import/v2");
+    meta.put("pending_key", pending_key);
+    meta.put("command_id", command_id);
+    meta.put("result_token", result_token);
+    meta.put("artifact_type", artifact_type);
+    meta.put("artifact_name", artifact_name);
+    meta.put("sha256", sha256_val);
+    meta.put("notification_title", notification_title);
+    meta.put("created_at_ms", now);
+
+    meta_out = new java.io.FileOutputStream(meta_tmp, false);
+    meta_out.write(meta.toString().getBytes("UTF-8"));
+    meta_out.flush();
+    meta_out.getFD().sync();
+    meta_out.close();
+
+    if (xml_file.exists() &amp;&amp; !xml_file.delete()) throw new java.io.IOException("cannot_replace_xml");
+    if (meta_file.exists() &amp;&amp; !meta_file.delete()) throw new java.io.IOException("cannot_replace_meta");
+    if (!xml_tmp.renameTo(xml_file)) throw new java.io.IOException("cannot_commit_xml");
+    if (!meta_tmp.renameTo(meta_file)) throw new java.io.IOException("cannot_commit_meta");
+} catch (java.lang.Throwable stage_exception) {
+    stage_error = "stage_failed:" + stage_exception.getClass().getName() + ":" + String.valueOf(stage_exception.getMessage());
+}
+
+terminal = stage_error.length() &gt; 0;
+state = terminal ? "IMPORT_FAILED" : "AWAITING_USER_CONFIRMATION";
+result = new org.json.JSONObject();
+result.put("ok", !terminal);
+result.put("terminal", terminal);
+result.put("operation", "import");
+result.put("state", state);
+result.put("command_id", command_id);
+result.put("artifact_type", artifact_type);
+result.put("artifact_name", artifact_name);
+result.put("sha256", sha256_val);
+result.put("pending_key", pending_key);
+result.put("notification_title", notification_title);
+if (terminal) {
+    result.put("error_code", "stage_failed");
+    result.put("error_message", stage_error);
+}
+result.put("finished_at_ms", now);
+
+result_json = result.toString();
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "import");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("terminal", terminal);
+envelope.put("state", state);
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope.toString());
+    provider_method = terminal ? "submit_result" : "submit_progress";
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        provider_method,
+        null,
+        extras
+    );
+    if (reply == null) provider_output = "accepted=false;reason=null_reply";
+    else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable provider_error) {
+    provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage());
+}
+
+tasker.setVariable("import_stage_error", stage_error, true);
+tasker.setVariable("import_stage_ok", terminal ? "false" : "true", true);
+tasker.setVariable("import_pending_key", pending_key, true);
+tasker.setVariable("import_notification_title", notification_title, true);
+tasker.setVariable("import_result_json", result_json, true);
+tasker.setVariable("HermesLastImport", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act23" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_stage_ok</lhs>
+					<op>2</op>
+					<rhs>true</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act24" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">%import_notification_title</Str>
+			<Str sr="arg1" ve="3">%import_artifact_type listo para importar: %import_name
+
+Pulsa Importar cuando quieras abrir la confirmación oficial de Tasker.
+
+Provider: %provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<var></var>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ListElementItem sr="item0">
+				<label>Importar</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Hermes · Confirm Import v2.4</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%import_pending_key</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+			</ListElementItem>
+		</Action>
+		<Action sr="act25" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act26" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Submit the canonical validation failure; do not re-validate. */
+command_id = tasker.getVariable("import_command_id");
+result_token = tasker.getVariable("import_result_token");
+artifact_type = tasker.getVariable("import_artifact_type");
+artifact_name = tasker.getVariable("import_name");
+sha256_val = tasker.getVariable("import_sha256");
+error_code = tasker.getVariable("import_error");
+if (command_id == null) command_id = "";
+if (result_token == null) result_token = "";
+if (artifact_type == null) artifact_type = "";
+if (artifact_name == null) artifact_name = "";
+if (sha256_val == null) sha256_val = "";
+if (error_code == null || error_code.length() == 0) error_code = "validation_failed";
+now = java.lang.System.currentTimeMillis();
+result = new org.json.JSONObject();
+result.put("ok", false);
+result.put("terminal", true);
+result.put("operation", "import");
+result.put("state", "VALIDATION_FAILED");
+result.put("command_id", command_id);
+result.put("artifact_type", artifact_type);
+result.put("artifact_name", artifact_name);
+result.put("sha256", sha256_val);
+result.put("error_code", error_code);
+result.put("error_message", error_code);
+result.put("finished_at_ms", now);
+result_json = result.toString();
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "import");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("terminal", true);
+envelope.put("state", "VALIDATION_FAILED");
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+provider_output = "";
+try {
+    extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString());
+    reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), "submit_result", null, extras);
+    if (reply == null) provider_output = "accepted=false;reason=null_reply";
+    else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; }
+} catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true);
+tasker.setVariable("HermesLastImport", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes · Importación rechazada</Str>
+			<Str sr="arg1" ve="3">%import_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<uri>android.resource://net.dinglisch.android.taskerm/drawable/mw_notification_adb</uri>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Importación rechazada: %import_error</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_artifact_type</lhs>
+					<op>2</op>
+					<rhs>task</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Importando tarea silenciosamente: %import_name…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task555">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>555</id>
+		<nme>Hermes · Confirm Import v2.4</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Hermes v2.4 · Cargando importación pendiente…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Load and lock one staged Profile/Project selected by a native Notify action. */
+pending_key = tasker.getVariable("par1");
+if (pending_key == null) pending_key = "";
+command_id = "";
+result_token = "";
+confirm_error = "";
+data_xml = "";
+artifact_type = "";
+artifact_name = "";
+sha256_val = "";
+notification_title = "";
+lock_acquired = false;
+try {
+    if (!pending_key.matches("[0-9a-f]{32}")) throw new java.lang.IllegalArgumentException("invalid_pending_key");
+    pending_dir = new java.io.File(context.getFilesDir(), "hermes_pending_imports_v2_4");
+    xml_file = new java.io.File(pending_dir, pending_key + ".xml");
+    meta_file = new java.io.File(pending_dir, pending_key + ".json");
+    lock_file = new java.io.File(pending_dir, pending_key + ".lock");
+    if (!xml_file.isFile() || !meta_file.isFile()) throw new java.io.FileNotFoundException("pending_not_found");
+
+    meta_bytes = java.nio.file.Files.readAllBytes(meta_file.toPath());
+    meta = new org.json.JSONObject(new java.lang.String(meta_bytes, "UTF-8"));
+    if (!pending_key.equals(meta.optString("pending_key", ""))) throw new java.lang.SecurityException("pending_key_mismatch");
+    command_id = meta.optString("command_id", "");
+    result_token = meta.optString("result_token", "");
+    artifact_type = meta.optString("artifact_type", "");
+    artifact_name = meta.optString("artifact_name", "");
+    sha256_val = meta.optString("sha256", "");
+    notification_title = meta.optString("notification_title", "Hermes · Import · " + pending_key);
+    if (command_id.length() == 0) throw new java.lang.SecurityException("missing_command_id");
+    if (result_token.length() == 0) throw new java.lang.SecurityException("missing_result_token");
+    if (!"profile".equals(artifact_type) &amp;&amp; !"project".equals(artifact_type)) throw new java.lang.SecurityException("unsupported_deferred_type");
+
+    data_bytes = java.nio.file.Files.readAllBytes(xml_file.toPath());
+    data_xml = new java.lang.String(data_bytes, "UTF-8");
+    digest_bytes = java.security.MessageDigest.getInstance("SHA-256").digest(data_bytes);
+    hex_buf = "";
+    for (digest_index = 0; digest_index &lt; digest_bytes.length; digest_index++) {
+        hex_part = java.lang.Integer.toHexString(digest_bytes[digest_index] &amp; 255);
+        if (hex_part.length() &lt; 2) hex_buf += "0";
+        hex_buf += hex_part;
+    }
+    if (!sha256_val.equals(hex_buf)) throw new java.lang.SecurityException("sha256_mismatch");
+
+    lock_acquired = lock_file.createNewFile();
+    if (!lock_acquired) throw new java.lang.IllegalStateException("import_in_progress");
+} catch (java.lang.Throwable confirm_exception) {
+    confirm_error = confirm_exception.getMessage();
+    if (confirm_error == null || confirm_error.length() == 0) confirm_error = confirm_exception.getClass().getName();
+}
+
+tasker.setVariable("confirm_error", confirm_error, true);
+tasker.setVariable("confirm_pending_key", pending_key, true);
+tasker.setVariable("import_command_id", command_id, true);
+tasker.setVariable("import_result_token", result_token, true);
+tasker.setVariable("import_artifact_type", artifact_type, true);
+tasker.setVariable("import_name", artifact_name, true);
+tasker.setVariable("import_sha256", sha256_val, true);
+tasker.setVariable("import_notification_title", notification_title, true);
+tasker.setVariable("import_xml", data_xml, true);
+return confirm_error.length() == 0 ? "ready:" + artifact_type + ":" + artifact_name : "error:" + confirm_error;</Str>
+			<Str sr="arg1" ve="3">%confirm_prepare_output</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%err</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Configuration import was cancelled or failed: keep staged data and notification for retry. */
+command_id = tasker.getVariable("import_command_id"); result_token = tasker.getVariable("import_result_token"); artifact_type = tasker.getVariable("import_artifact_type"); artifact_name = tasker.getVariable("import_name"); sha256_val = tasker.getVariable("import_sha256"); pending_key = tasker.getVariable("confirm_pending_key");
+if (command_id == null) command_id = ""; if (result_token == null) result_token = ""; if (artifact_type == null) artifact_type = ""; if (artifact_name == null) artifact_name = ""; if (sha256_val == null) sha256_val = ""; if (pending_key == null) pending_key = "";
+try { lock_file = new java.io.File(new java.io.File(context.getFilesDir(), "hermes_pending_imports_v2_4"), pending_key + ".lock"); if (lock_file.exists()) lock_file.delete(); } catch (java.lang.Throwable ignored) {}
+now = java.lang.System.currentTimeMillis(); result = new org.json.JSONObject(); result.put("ok", false); result.put("terminal", false); result.put("operation", "import"); result.put("state", "AWAITING_USER_CONFIRMATION"); result.put("last_attempt_state", "CANCELLED_OR_FAILED"); result.put("command_id", command_id); result.put("artifact_type", artifact_type); result.put("artifact_name", artifact_name); result.put("sha256", sha256_val); result.put("pending_key", pending_key); result.put("tasker_error", tasker.getVariable("err") != null ? tasker.getVariable("err") : ""); result.put("error_message", tasker.getVariable("errmsg") != null ? tasker.getVariable("errmsg") : ""); result.put("finished_at_ms", now);
+result_json = result.toString(); envelope = new org.json.JSONObject(); envelope.put("schema", "hermes-tasker-result/v1"); envelope.put("operation", "import"); envelope.put("command_id", command_id); envelope.put("result_token", result_token); envelope.put("terminal", false); envelope.put("state", "AWAITING_USER_CONFIRMATION"); envelope.put("result_json", result_json); envelope.put("finished_at_ms", now);
+provider_output = ""; try { extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString()); reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), "submit_progress", null, extras); if (reply == null) provider_output = "accepted=false;reason=null_reply"; else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; } } catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true); tasker.setVariable("HermesLastImport", result_json, true); tasker.setVariable("provider_reply", provider_output); tasker.setVariable("HermesLastProviderReply", provider_output); return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">%import_notification_title</Str>
+			<Str sr="arg1" ve="3">No se completó la importación de %import_name. Pulsa Importar para reintentarlo.
+
+%import_result_json</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<var></var>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="4"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ListElementItem sr="item0">
+				<label>Importar</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Hermes · Confirm Import v2.4</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%confirm_pending_key</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+			</ListElementItem>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%import_verified</Str>
+			<Str sr="arg1" ve="3">false</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_artifact_type</lhs>
+					<op>2</op>
+					<rhs>profile</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>347</code>
+			<Int sr="arg0" val="5"/>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg2" ve="3">%verify_items</Str>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act19" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_artifact_type</lhs>
+					<op>2</op>
+					<rhs>project</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%confirm_error</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act20" ve="7">
+			<code>347</code>
+			<Int sr="arg0" val="11"/>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg2" ve="3">%verify_items</Str>
+		</Action>
+		<Action sr="act21" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act22" ve="7">
+			<code>39</code>
+			<Str sr="arg0" ve="3">%verify_item</Str>
+			<Str sr="arg1" ve="3">%verify_items()</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act23" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%verify_item</lhs>
+					<op>2</op>
+					<rhs>%import_name</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act24" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%import_verified</Str>
+			<Str sr="arg1" ve="3">true</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act25" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act26" ve="7">
+			<code>40</code>
+		</Action>
+		<Action sr="act27" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%import_verified</lhs>
+					<op>2</op>
+					<rhs>false</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act28" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Import Data returned, but the named artifact was not visible: keep it pending and retryable. */
+command_id = tasker.getVariable("import_command_id");
+result_token = tasker.getVariable("import_result_token");
+artifact_type = tasker.getVariable("import_artifact_type");
+artifact_name = tasker.getVariable("import_name");
+sha256_val = tasker.getVariable("import_sha256");
+pending_key = tasker.getVariable("confirm_pending_key");
+if (command_id == null) command_id = "";
+if (result_token == null) result_token = "";
+if (artifact_type == null) artifact_type = "";
+if (artifact_name == null) artifact_name = "";
+if (sha256_val == null) sha256_val = "";
+if (pending_key == null) pending_key = "";
+try {
+    lock_file = new java.io.File(new java.io.File(context.getFilesDir(), "hermes_pending_imports_v2_4"), pending_key + ".lock");
+    if (lock_file.exists()) lock_file.delete();
+} catch (java.lang.Throwable ignored) {}
+
+now = java.lang.System.currentTimeMillis();
+result = new org.json.JSONObject();
+result.put("ok", false);
+result.put("terminal", false);
+result.put("operation", "import");
+result.put("state", "AWAITING_USER_CONFIRMATION");
+result.put("last_attempt_state", "NOT_VERIFIED");
+result.put("command_id", command_id);
+result.put("artifact_type", artifact_type);
+result.put("artifact_name", artifact_name);
+result.put("sha256", sha256_val);
+result.put("pending_key", pending_key);
+result.put("error_code", "artifact_not_found_after_import");
+result.put("error_message", "Import Data returned, but Test Tasker did not list the artifact; cancellation cannot yet be distinguished from another non-import result");
+result.put("import_verified", false);
+result.put("staging_retained", true);
+result.put("finished_at_ms", now);
+
+result_json = result.toString();
+envelope = new org.json.JSONObject();
+envelope.put("schema", "hermes-tasker-result/v1");
+envelope.put("operation", "import");
+envelope.put("command_id", command_id);
+envelope.put("result_token", result_token);
+envelope.put("terminal", false);
+envelope.put("state", "AWAITING_USER_CONFIRMATION");
+envelope.put("result_json", result_json);
+envelope.put("finished_at_ms", now);
+
+provider_output = "";
+try {
+    extras = new android.os.Bundle();
+    extras.putString("result_json", envelope.toString());
+    reply = context.getContentResolver().call(
+        android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"),
+        "submit_progress",
+        null,
+        extras
+    );
+    if (reply == null) provider_output = "accepted=false;reason=null_reply";
+    else {
+        accepted = reply.getBoolean("accepted", false);
+        reason = reply.getString("reason");
+        if (reason == null) reason = "";
+        provider_output = "accepted=" + accepted + ";reason=" + reason;
+    }
+} catch (java.lang.Throwable provider_error) {
+    provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage());
+}
+
+tasker.setVariable("import_result_json", result_json, true);
+tasker.setVariable("HermesLastImport", result_json, true);
+tasker.setVariable("provider_reply", provider_output);
+tasker.setVariable("HermesLastProviderReply", provider_output);
+return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act29" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">%import_notification_title</Str>
+			<Str sr="arg1" ve="3">Tasker no confirmó la presencia de %import_name. Pulsa Importar para reintentarlo.
+
+%import_result_json</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<var></var>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ListElementItem sr="item0">
+				<label>Importar</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">Hermes · Confirm Import v2.4</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3">%confirm_pending_key</Str>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="0"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+			</ListElementItem>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* A bad/missing staged entry is terminal; an already-running entry is progress-only. */
+command_id = tasker.getVariable("import_command_id"); result_token = tasker.getVariable("import_result_token"); error_code = tasker.getVariable("confirm_error"); pending_key = tasker.getVariable("confirm_pending_key");
+if (command_id == null) command_id = ""; if (result_token == null) result_token = ""; if (error_code == null) error_code = "confirm_prepare_failed"; if (pending_key == null) pending_key = "";
+terminal = !"import_in_progress".equals(error_code); state = terminal ? "IMPORT_FAILED" : "AWAITING_USER_CONFIRMATION"; now = java.lang.System.currentTimeMillis();
+result = new org.json.JSONObject(); result.put("ok", false); result.put("terminal", terminal); result.put("operation", "import"); result.put("state", state); result.put("command_id", command_id); result.put("pending_key", pending_key); result.put("error_code", error_code); result.put("error_message", error_code); result.put("finished_at_ms", now);
+result_json = result.toString(); envelope = new org.json.JSONObject(); envelope.put("schema", "hermes-tasker-result/v1"); envelope.put("operation", "import"); envelope.put("command_id", command_id); envelope.put("result_token", result_token); envelope.put("terminal", terminal); envelope.put("state", state); envelope.put("result_json", result_json); envelope.put("finished_at_ms", now);
+provider_output = ""; try { extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString()); method = terminal ? "submit_result" : "submit_progress"; reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), method, null, extras); if (reply == null) provider_output = "accepted=false;reason=null_reply"; else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; } } catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true); tasker.setVariable("HermesLastImport", result_json, true); tasker.setVariable("provider_reply", provider_output); tasker.setVariable("HermesLastProviderReply", provider_output); return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act30" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act31" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act32" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/* Verified Profile/Project import: cleanup and submit the only terminal success. */
+command_id = tasker.getVariable("import_command_id"); result_token = tasker.getVariable("import_result_token"); artifact_type = tasker.getVariable("import_artifact_type"); artifact_name = tasker.getVariable("import_name"); sha256_val = tasker.getVariable("import_sha256"); pending_key = tasker.getVariable("confirm_pending_key");
+if (command_id == null) command_id = ""; if (result_token == null) result_token = ""; if (artifact_type == null) artifact_type = ""; if (artifact_name == null) artifact_name = ""; if (sha256_val == null) sha256_val = ""; if (pending_key == null) pending_key = "";
+cleanup_error = "";
+try { pending_dir = new java.io.File(context.getFilesDir(), "hermes_pending_imports_v2_4"); new java.io.File(pending_dir, pending_key + ".lock").delete(); new java.io.File(pending_dir, pending_key + ".xml").delete(); new java.io.File(pending_dir, pending_key + ".json").delete(); } catch (java.lang.Throwable cleanup_exception) { cleanup_error = String.valueOf(cleanup_exception.getMessage()); }
+now = java.lang.System.currentTimeMillis(); result = new org.json.JSONObject(); result.put("ok", true); result.put("terminal", true); result.put("operation", "import"); result.put("state", "COMPLETED"); result.put("command_id", command_id); result.put("artifact_type", artifact_type); result.put("artifact_name", artifact_name); result.put("sha256", sha256_val); result.put("pending_key", pending_key); result.put("import_mode", "manual_configuration"); result.put("import_verified", true); result.put("verification_method", "Test Tasker named artifact lookup"); if (cleanup_error.length() &gt; 0) result.put("cleanup_warning", cleanup_error); result.put("finished_at_ms", now);
+result_json = result.toString(); envelope = new org.json.JSONObject(); envelope.put("schema", "hermes-tasker-result/v1"); envelope.put("operation", "import"); envelope.put("command_id", command_id); envelope.put("result_token", result_token); envelope.put("terminal", true); envelope.put("state", "COMPLETED"); envelope.put("result_json", result_json); envelope.put("finished_at_ms", now);
+provider_output = ""; try { extras = new android.os.Bundle(); extras.putString("result_json", envelope.toString()); reply = context.getContentResolver().call(android.net.Uri.parse("content://com.hermesandroid.bridge.taskerresult"), "submit_result", null, extras); if (reply == null) provider_output = "accepted=false;reason=null_reply"; else { accepted = reply.getBoolean("accepted", false); reason = reply.getString("reason"); if (reason == null) reason = ""; provider_output = "accepted=" + accepted + ";reason=" + reason; } } catch (java.lang.Throwable provider_error) { provider_output = "accepted=false;reason=exception:" + provider_error.getClass().getName() + ":" + String.valueOf(provider_error.getMessage()); }
+tasker.setVariable("import_result_json", result_json, true); tasker.setVariable("HermesLastImport", result_json, true); tasker.setVariable("provider_reply", provider_output); tasker.setVariable("HermesLastProviderReply", provider_output); return provider_output;</Str>
+			<Str sr="arg1" ve="3">%provider_reply</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act33" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes · Configuración importada</Str>
+			<Str sr="arg1" ve="3">%import_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act34" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Importación verificada: %import_name</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act35" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Hermes · No se pudo abrir</Str>
+			<Str sr="arg1" ve="3">%import_result_json
+
+Provider:
+%provider_reply</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">Hermes Imports</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Img sr="arg2" ve="2">
+				<uri>android.resource://net.dinglisch.android.taskerm/drawable/mw_notification_adb</uri>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="5"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">%import_notification_title</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Abriendo confirmación de Tasker: %import_name…</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3">Hermes</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>153</code>
+			<se>false</se>
+			<Int sr="arg0" val="1"/>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">%import_xml</Str>
+		</Action>
+	</Task>
+	<Task sr="task563">
+		<cdate>1785418219368</cdate>
+		<edate>1785418219368</edate>
+		<id>563</id>
+		<nme>Hermes · Capability · Runtime Status v1</nme>
+		<pri>7</pri>
+		<Action sr="act0" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">/*
+ * NATIVE_ACTION_NOT_USED:
+ * A structured JSON return containing global runtime diagnostics has no
+ * equivalent single native Tasker action. This block only reads state and
+ * materializes one return variable for the native Return action.
+ *
+ * INPUTS: HermesLastImport, HermesLastRun, HermesLastProbe,
+ *         HermesLastProviderReply
+ * OUTPUTS: result_json
+ */
+last_import = tasker.getVariable("HermesLastImport");
+last_run = tasker.getVariable("HermesLastRun");
+last_probe = tasker.getVariable("HermesLastProbe");
+provider_reply = tasker.getVariable("HermesLastProviderReply");
+if (last_import == null) last_import = "";
+if (last_run == null) last_run = "";
+if (last_probe == null) last_probe = "";
+if (provider_reply == null) provider_reply = "";
+result = new org.json.JSONObject();
+result.put("ok", true);
+result.put("capability", "runtime.status.v1");
+result.put("runtime_version", "2.4");
+result.put("tasker_package", "net.dinglisch.android.taskerm");
+result.put("hermes_last_import", last_import);
+result.put("hermes_last_run", last_run);
+result.put("hermes_last_probe", last_probe);
+result.put("provider_reply", provider_reply);
+result.put("timestamp_ms", java.lang.System.currentTimeMillis());
+result_json = result.toString();
+tasker.setVariable("result_json", result_json, true);
+return result_json;</Str>
+			<Str sr="arg1" ve="3">%result_json</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>126</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">%result_json</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+</TaskerData>
