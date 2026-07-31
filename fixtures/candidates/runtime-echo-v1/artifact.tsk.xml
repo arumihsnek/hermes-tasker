@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TaskerData sr="" dvi="1" tv="6.7.6-beta">
+  <Task sr="task910001">
+    <id>910001</id>
+    <nme>Hermes Runtime Echo v1</nme>
+    <Action sr="act0" ve="7">
+      <code>126</code>
+      <Str sr="arg0" ve="3">{"capability":"runtime.echo","command_id":"runtime-echo-command-v1","payload":"Hermes Runtime Echo v1","result_token":"runtime-echo-token-v1","status":"success"}</Str>
+      <Int sr="arg1" val="1" />
+      <Int sr="arg2" val="0" />
+      <Int sr="arg3" val="0" />
+      <Str sr="arg4" ve="3" />
+    </Action>
+  </Task>
+</TaskerData>

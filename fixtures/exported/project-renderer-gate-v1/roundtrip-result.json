@@ -1,0 +1,23 @@
+{
+  "run_id": "run-20260728T004816Z-43023f",
+  "mission": "ASSISTED_PROJECT_IMPORT_AND_SEMANTIC_ROUNDTRIP_GATE",
+  "candidate": {
+    "path": "fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml",
+    "sha256": "0ec73026b83dedade63905d74bb3f3e502f7dc6e10f617d58232dbd03b3e3ba1",
+    "size": 1459
+  },
+  "reexport": {
+    "path": "fixtures/exported/project-renderer-gate-v1/artifact.reexported.prj.xml",
+    "sha256": "0ec73026b83dedade63905d74bb3f3e502f7dc6e10f617d58232dbd03b3e3ba1",
+    "size": 1459
+  },
+  "comparison": {
+    "verdict": "EXACT_PASS",
+    "byte_equal": true,
+    "lexical_differences": 0,
+    "structural_differences": 0,
+    "semantic_differences": 0
+  },
+  "evidence_complete": true,
+  "completed_at": "2026-07-28T02:39:43.200877Z"
+}

@@ -1,0 +1,18 @@
+{
+  "run_id": "run-20260728T004816Z-43023f",
+  "phases_completed": 10,
+  "gate_verdict": "EXACT_PASS",
+  "evidence_dir": "/home/ubuntu/evidence/tasker-roundtrip/run-20260728T004816Z-43023f/",
+  "artifacts": {
+    "candidate": "fixtures/candidates/project-renderer-gate-v1/artifact.prj.xml",
+    "reexport": "fixtures/exported/project-renderer-gate-v1/artifact.reexported.prj.xml",
+    "roundtrip_result": "fixtures/exported/project-renderer-gate-v1/roundtrip-result.json"
+  },
+  "verification": {
+    "triple_sha256": true,
+    "byte_equal": true,
+    "lexical_equal": true,
+    "structural_equal": true,
+    "semantic_equal": true
+  }
+}

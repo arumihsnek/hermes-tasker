@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "roundtrip-result.schema.json",
+  "title": "Tasker Roundtrip Comparison Result",
+  "description": "Schema for the output of compare_tasker_roundtrip.py",
+  "type": "object",
+  "required": ["custody", "lexical", "structural", "semantic", "differences", "verdict", "verdict_reason"],
+  "properties": {
+    "custody": {
+      "type": "object",
+      "required": ["candidate_sha256", "reexport_sha256", "byte_equal", "candidate_size", "reexport_size"],
+      "properties": {
+        "candidate_sha256": {
+          "type": "string",
+          "description": "SHA-256 hex digest of the candidate file"
+        },
+        "reexport_sha256": {
+          "type": "string",
+          "description": "SHA-256 hex digest of the re-exported file"
+        },
+        "byte_equal": {
+          "type": "boolean",
+          "description": "Whether the files are byte-identical"
+        },
+        "candidate_size": {
+          "type": "integer",
+          "description": "Size in bytes of the candidate file"
+        },
+        "reexport_size": {
+          "type": "integer",
+          "description": "Size in bytes of the re-exported file"
+        },
+        "parsing_error": {
+          "type": "string",
+          "description": "XML parse error message, present only when parsing fails"
+        }
+      },
+      "additionalProperties": false
+    },
+    "lexical": {
+      "type": "object",
+      "required": ["differences"],
+      "properties": {
+        "differences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/difference" },
+          "description": "Diagnostic lexical differences (does not decide semantics)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "structural": {
+      "type": "object",
+      "required": ["differences", "candidate", "reexport"],
+      "properties": {
+        "differences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/difference" },
+          "description": "Structural differences between the two XML trees"
+        },
+        "candidate": {
+          "type": "object",
+          "description": "Structural projection of the candidate file"
+        },
+        "reexport": {
+          "type": "object",
+          "description": "Structural projection of the re-exported file"
+        }
+      },
+      "additionalProperties": false
+    },
+    "semantic": {
+      "type": "object",
+      "required": ["candidate", "reexport", "differences"],
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/semantic_projection",
+          "description": "Semantic projection of the candidate file"
+        },
+        "reexport": {
+          "$ref": "#/$defs/semantic_projection",
+          "description": "Semantic projection of the re-exported file"
+        },
+        "differences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/difference" },
+          "description": "Semantic differences between the two files"
+        }
+      },
+      "additionalProperties": false
+    },
+    "differences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/difference" },
+      "description": "All differences combined (structural + semantic)"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "EXACT_PASS",
+        "STRUCTURAL_PASS_SEMANTIC_REVIEW_REQUIRED",
+        "SEMANTIC_PASS_WITH_UNAPPROVED_NORMALIZATION",
+        "SEMANTIC_FAIL",
+        "UNPARSABLE"
+      ],
+      "description": "The comparison verdict"
+    },
+    "verdict_reason": {
+      "type": "string",
+      "description": "Human-readable explanation of the verdict"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "difference": {
+      "type": "object",
+      "required": ["path", "candidate", "reexport", "provisional_class", "suppressed"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "XPath-like path identifying the differing element"
+        },
+        "candidate": {
+          "type": "string",
+          "description": "Value in the candidate file"
+        },
+        "reexport": {
+          "type": "string",
+          "description": "Value in the re-exported file"
+        },
+        "provisional_class": {
+          "type": "string",
+          "enum": [
+            "serialization_difference",
+            "structural_difference",
+            "semantic_difference"
+          ],
+          "description": "Provisional classification of the difference"
+        },
+        "suppressed": {
+          "type": "boolean",
+          "description": "Whether the difference is suppressed (always false in v1)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "semantic_projection": {
+      "type": "object",
+      "properties": {
+        "tasker_version": {
+          "type": ["string", "null"],
+          "description": "Tasker version from the XML"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": ["string", "null"] },
+              "name": { "type": ["string", "null"] },
+              "pids": { "type": "array", "items": { "type": "integer" } },
+              "tids": { "type": "array", "items": { "type": "integer" } }
+            }
+          }
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": ["integer", "null"] },
+              "nme": { "type": ["string", "null"] },
+              "flags": { "type": ["integer", "null"] },
+              "mid0": { "type": ["integer", "null"] },
+              "mid1": { "type": ["integer", "null"] },
+              "context_type": { "type": ["string", "null"] },
+              "code": { "type": ["integer", "null"] },
+              "args": { "type": "object" }
+            }
+          }
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": ["integer", "null"] },
+              "nme": { "type": ["string", "null"] },
+              "priority": { "type": ["integer", "null"] },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": { "type": ["integer", "null"] },
+                    "args": { "type": "object" }
+                  }
+                }
+              },
+              "conditions": { "type": "array" }
+            }
+          }
+        },
+        "references": {
+          "type": "array",
+          "description": "Reserved for future use"
+        }
+      }
+    }
+  }
+}
